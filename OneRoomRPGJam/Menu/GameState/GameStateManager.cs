@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace OneRoomRPGJam
 {
+	//TODO: Create Play state for character and collision testing. 
 	public class GameStateManager
 	{
 		List<GameState> StateList;
-		int currentGameState = 0; 
-
-		public GameStateManager()
+		int currentGameState;
+		private static ContentManager Content; 
+		public GameStateManager(ContentManager content)
 		{
-			StateList = new List<GameState>(); 
+			StateList = new List<GameState>();
+			Content = content; 
 		}
 
 		/// <summary>
@@ -22,7 +25,7 @@ namespace OneRoomRPGJam
 		{
 			foreach (GameState gs in StateList)
 			{
-				gs.Init(); 
+				gs.Init(Content); 
 			}
 		}
 

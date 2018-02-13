@@ -13,13 +13,16 @@ namespace OneRoomRPGJam
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		GameStateManager GSM; 
+		GameStateManager GSM;
+		private static bool exit = false;
+		private static GraphicsDevice gd; 
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
-			GSM = new GameStateManager(); 
+			GSM = new GameStateManager(Content);
+			IsMouseVisible = true;
 		}
 
 		/// <summary>
@@ -31,7 +34,7 @@ namespace OneRoomRPGJam
 		protected override void Initialize()
 		{
 			// TODO: Add your initialization logic here
-
+			gd = graphics.GraphicsDevice;
 			GSM.AddGameState(new MainMenu());
 			GSM.Init(); 
 
@@ -65,7 +68,11 @@ namespace OneRoomRPGJam
 #endif
 
 			// TODO: Add your update logic here
-			GSM.Update(gameTime); 
+			GSM.Update(gameTime);
+			if (exit)
+			{
+				Exit(); 
+			}
 			base.Update(gameTime);
 		}
 
@@ -82,6 +89,14 @@ namespace OneRoomRPGJam
 			GSM.Render(spriteBatch);
 			spriteBatch.End(); 
 			base.Draw(gameTime);
+		}
+		public static void ExitGame()
+		{
+			exit = true; 
+		}
+		public static GraphicsDevice GetGraphicsDevice() 
+		{
+			return gd; 
 		}
 	}
 }

@@ -15,14 +15,15 @@ namespace OneRoomRPGJam
 		SpriteBatch spriteBatch;
 		GameStateManager GSM;
 		private static bool exit = false;
-		private static GraphicsDevice gd; 
-
+		private static GraphicsDevice gd;
+		Player p; 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			GSM = new GameStateManager(Content);
 			IsMouseVisible = true;
+			p = new Player(); 
 		}
 
 		/// <summary>
@@ -35,9 +36,10 @@ namespace OneRoomRPGJam
 		{
 			// TODO: Add your initialization logic here
 			gd = graphics.GraphicsDevice;
+			Entity.SetContentManager(Content);
 			GSM.AddGameState(new MainMenu());
-			GSM.Init(); 
-
+			GSM.Init();
+			p.Init(); 
 			base.Initialize();
 		}
 
@@ -49,7 +51,6 @@ namespace OneRoomRPGJam
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-
 			//TODO: use this.Content to load your game content here 
 		}
 
@@ -68,7 +69,10 @@ namespace OneRoomRPGJam
 #endif
 
 			// TODO: Add your update logic here
+			Input.Update(gameTime);
+			p.Update(gameTime); 
 			GSM.Update(gameTime);
+
 			if (exit)
 			{
 				Exit(); 
@@ -86,6 +90,7 @@ namespace OneRoomRPGJam
 
 			//TODO: Add your drawing code here
 			spriteBatch.Begin();
+			p.Render(spriteBatch);
 			GSM.Render(spriteBatch);
 			spriteBatch.End(); 
 			base.Draw(gameTime);

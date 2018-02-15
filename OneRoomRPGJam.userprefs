@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Menu/GUI/Button.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Game1.cs">
     <Files>
-      <File FileName="OneRoomRPGJam/Menu/GameState/MainMenu.cs" Line="8" Column="3" />
-      <File FileName="OneRoomRPGJam/Menu/GameState/GameStateManager.cs" Line="11" Column="27" />
-      <File FileName="OneRoomRPGJam/Menu/GUI/Button.cs" Line="21" Column="3" />
+      <File FileName="OneRoomRPGJam/Entity/CollisionEntity.cs" Line="2" Column="24" />
+      <File FileName="OneRoomRPGJam/Entity/Entity.cs" Line="7" Column="2" />
+      <File FileName="OneRoomRPGJam/Entity/Player.cs" Line="19" Column="53" />
+      <File FileName="OneRoomRPGJam/Game1.cs" Line="26" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

@@ -16,7 +16,7 @@ namespace OneRoomRPGJam
 
 		public override void Init()
 		{
-			texture = Content.Load<Texture2D>("player_placeholder");
+			texture = Content.Load<Texture2D>("knightsprite");
 			x = 300;
 			y = 100; 
 			Position = new Vector2(x,y);

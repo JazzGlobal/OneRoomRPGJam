@@ -5,8 +5,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace OneRoomRPGJam
 {
-	//#TODO Derive EnemyEntity from CollisionEntity
-
 	public abstract class Entity
 	{
 		protected int x;
@@ -23,15 +21,9 @@ namespace OneRoomRPGJam
 			return bounds; 
 		}
 
-		public virtual void Init()
-		{
-			
-		}
+		public virtual void Init(){}
 
-		public virtual void Update(GameTime gameTime)
-		{
-			
-		}
+		public virtual void Update(GameTime gameTime){}
 
 		public virtual void Render(SpriteBatch spriteBatch)
 		{

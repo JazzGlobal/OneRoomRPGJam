@@ -16,7 +16,7 @@ namespace OneRoomRPGJam
 		Texture2D texture;
 		public MouseState mouseState = new MouseState();
 		Texture2D whiteRectangle = new Texture2D(Game1.GetGraphicsDevice(), 1, 1);
-		private MouseState oldState;
+		private MouseState oldState = new MouseState(); 
 
 		public Button(int x, int y, Texture2D texture, string placeholdertext)
 		{
@@ -30,7 +30,6 @@ namespace OneRoomRPGJam
 				height = texture.Height;
 			}
 			this.placeHolderText = placeholdertext;
-
 		}
 
 		public Button(int x, int y, Texture2D texture)
@@ -43,6 +42,7 @@ namespace OneRoomRPGJam
 		public static void Update(Button instance, GameTime gameTime, Action performAction)
 		{
 			instance.mouseState = Mouse.GetState();
+
 			if (instance.Clicked())
 			{
 				instance.onClick(performAction);
@@ -67,13 +67,14 @@ namespace OneRoomRPGJam
 		public bool Clicked()
 		{
 			MouseState newState = Mouse.GetState();
+				if ((newState.X >= this.x && newState.X <= this.x + this.width) &&
+					(newState.Y >= this.y && newState.Y <= this.y + this.height) &&
+			        (newState.LeftButton == ButtonState.Pressed) && oldState.LeftButton == ButtonState.Released)
+				{
+					oldState = newState; //y this reassigns the old state so that it is ready for next time
+					return true;
+				}
 
-			if ((Mouse.GetState().X >= this.x && Mouse.GetState().X <= this.x + this.width) &&
-			    (Mouse.GetState().Y >= this.y && Mouse.GetState().Y <= this.y + this.height) && newState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released)
-			{
-				return true;
-			}
-			oldState = newState; //y this reassigns the old state so that it is ready for next time
 			return false; 
 		}
 

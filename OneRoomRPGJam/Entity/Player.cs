@@ -8,6 +8,7 @@ namespace OneRoomRPGJam
 {
 	public class Player : CollisionEntity
 	{
+		
 		int speed = 2;
 		Vector2 Position;
 		Vector2 mousePos;

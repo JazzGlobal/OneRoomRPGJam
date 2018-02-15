@@ -50,6 +50,9 @@
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Menu\GameState\PauseState.cs" />
     <Compile Include="Menu\GameState\PlayState.cs" />
+    <Compile Include="Entity\Enemy.cs" />
+    <Compile Include="Entity\StateMachine.cs" />
+    <Compile Include="Entity\State.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

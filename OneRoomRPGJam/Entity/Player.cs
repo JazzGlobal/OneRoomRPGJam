@@ -22,11 +22,8 @@ namespace OneRoomRPGJam
 		public override void Init()
 		{
 			//TODO: Split into seperate functions 
-			//void LoadStates()
-			stateMachine = new StateMachine();
-			//Add States 
-			stateMachine.Init();
 
+			LoadStates(); 
 			//void InitializeVariables()
 
 			facingDirection = "";
@@ -38,25 +35,37 @@ namespace OneRoomRPGJam
 			height = texture.Height;
 		}
 
+		private void LoadStates()
+		{
+			stateMachine = new StateMachine();
+			//AddStates here... 
+
+			stateMachine.Init(); 
+		}
+
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
-			//void SetPosition() 
+			UpdatePosition(); 
+			CheckInput(); 
+		}
+
+		private void UpdatePosition()
+		{
 			Position.X = x;
 			Position.Y = y;
+		}
 
-			CheckInput(); 
+		private void CheckInput()
+		{
+			MovementCheck();
+			SetDirection();
 		}
 
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
+			//TODO: Change render method to default. 
 			spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y,width, height), null, 
 			                 Color.White, angle, new Vector2(width / 2, height / 2), SpriteEffects.None, 0);
-		}
-
-		public void CheckInput()
-		{
-			MovementCheck();
-			SetDirection(); 
 		}
 
 		/// <summary>
@@ -85,7 +94,8 @@ namespace OneRoomRPGJam
 		}
 
 		/// <summary>
-		/// Sets character sprite's direction to that of the mouse cursor. 
+		/// Sets character sprite's direction to that of the mouse cursor.
+		/// Status: Deprecated 
 		/// </summary>
 		private void SetDirection()
 		{

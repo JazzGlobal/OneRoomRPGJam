@@ -6,17 +6,30 @@ using Microsoft.Xna.Framework.Input;
 
 namespace OneRoomRPGJam
 {
+	//TODO: Seperate code. One Function to One Task.
 	public class Player : CollisionEntity
 	{
-		
 		int speed = 2;
 		Vector2 Position;
 		Vector2 mousePos;
 		Vector2 direction;
 		float angle;
+		string facingDirection;
+		private const string LEFT = "LEFT";
+		private const string RIGHT = "RIGHT";
+		private StateMachine stateMachine; 
 
 		public override void Init()
 		{
+			//TODO: Split into seperate functions 
+			//void LoadStates()
+			stateMachine = new StateMachine();
+			//Add States 
+			stateMachine.Init();
+
+			//void InitializeVariables()
+
+			facingDirection = "";
 			texture = Content.Load<Texture2D>("knightsprite");
 			x = 300;
 			y = 100; 
@@ -27,6 +40,7 @@ namespace OneRoomRPGJam
 
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
+			//void SetPosition() 
 			Position.X = x;
 			Position.Y = y;
 
@@ -56,7 +70,8 @@ namespace OneRoomRPGJam
 			}
 			if (Input.GetKeyboardState().IsKeyDown(Keys.A))
 			{
-				x -= speed; 
+				x -= speed;
+				facingDirection = LEFT; 
 			}
 			if (Input.GetKeyboardState().IsKeyDown(Keys.S))
 			{
@@ -64,7 +79,8 @@ namespace OneRoomRPGJam
 			}
 			if (Input.GetKeyboardState().IsKeyDown(Keys.D))
 			{
-				x += speed; 
+				x += speed;
+				facingDirection = RIGHT; 
 			}
 		}
 

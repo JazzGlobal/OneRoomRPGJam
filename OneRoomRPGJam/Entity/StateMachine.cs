@@ -18,7 +18,10 @@ namespace OneRoomRPGJam
 		{
 			if (stateList.Count > 0)
 			{
-				stateList[currentState].Init(); 
+				foreach (State s in stateList)
+				{
+					s.Init();
+				}
 			}
 		}
 		public void Update(GameTime gameTime)

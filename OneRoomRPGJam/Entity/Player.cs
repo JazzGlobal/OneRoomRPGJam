@@ -9,6 +9,11 @@ namespace OneRoomRPGJam
 	//TODO: Seperate code. One Function to One Task.
 	public class Player : CollisionEntity
 	{
+		//Level up stats: 
+		//Health
+		//Speed
+		//Attack
+		
 		int speed = 2;
 		Vector2 Position;
 		Vector2 mousePos;

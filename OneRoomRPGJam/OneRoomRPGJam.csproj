@@ -54,6 +54,7 @@
     <Compile Include="Entity\StateMachine.cs" />
     <Compile Include="Entity\State.cs" />
     <Compile Include="Graphics\Animation.cs" />
+    <Compile Include="Entity\PlayerStates\PlayerIdleState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />
@@ -107,6 +108,7 @@
     <Folder Include="Menu\GUI\" />
     <Folder Include="Input\" />
     <Folder Include="Graphics\" />
+    <Folder Include="Entity\PlayerStates\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

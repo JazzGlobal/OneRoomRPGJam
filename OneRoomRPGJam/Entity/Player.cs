@@ -39,7 +39,7 @@ namespace OneRoomRPGJam
 		{
 			stateMachine = new StateMachine();
 			//AddStates here... 
-
+			stateMachine.AddState(new PlayerIdleState()); 
 			stateMachine.Init(); 
 		}
 
@@ -63,9 +63,12 @@ namespace OneRoomRPGJam
 
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
-			//TODO: Change render method to default. 
-			spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y,width, height), null, 
+			spriteBatch.Draw(texture, Position, Color.White); 
+
+			//Old render method. Renders according to variable 'angle'. Makes sprite rotate to mouse. 
+			/*spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y,width, height), null, 
 			                 Color.White, angle, new Vector2(width / 2, height / 2), SpriteEffects.None, 0);
+			*/
 		}
 
 		/// <summary>

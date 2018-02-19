@@ -4,9 +4,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace OneRoomRPGJam
 {
-	public class PlayerWalkingState : State
+	public class PlayerWalkingState : PlayerState
 	{
-		public PlayerWalkingState()
+		public PlayerWalkingState(Player player) : base (player)
 		{
 		}
 

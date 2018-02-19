@@ -20,7 +20,10 @@ namespace OneRoomRPGJam
 		string facingDirection;
 		private const string LEFT = "LEFT";
 		private const string RIGHT = "RIGHT";
-		private StateMachine stateMachine; 
+		private StateMachine stateMachine;
+
+		public static int IDLE = 0;
+		public static int WALKING = 1; 
 
 		public override void Init()
 		{
@@ -34,7 +37,8 @@ namespace OneRoomRPGJam
 		{
 			stateMachine = new StateMachine();
 			//AddStates here... 
-			stateMachine.AddState(new PlayerIdleState()); 
+			stateMachine.AddState(new PlayerIdleState());
+			stateMachine.AddState(new PlayerWalkingState()); 
 			stateMachine.Init(); 
 		}
 
@@ -64,10 +68,12 @@ namespace OneRoomRPGJam
 
 		private void CheckInput()
 		{
-			MovementCheck();
 			SetDirection();
 		}
-
+		public StateMachine GetStateMachine()
+		{
+			return stateMachine; 
+		}
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw(texture, Position, Color.White); 
@@ -76,31 +82,6 @@ namespace OneRoomRPGJam
 			/*spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y,width, height), null, 
 			                 Color.White, angle, new Vector2(width / 2, height / 2), SpriteEffects.None, 0);
 			*/
-		}
-
-		/// <summary>
-		/// Check if input is received. Move character accordingly. 
-		/// </summary>
-		private void MovementCheck()
-		{
-			if (Input.GetKeyboardState().IsKeyDown(Keys.W))
-			{
-				y -= speed; 
-			}
-			if (Input.GetKeyboardState().IsKeyDown(Keys.A))
-			{
-				x -= speed;
-				facingDirection = LEFT; 
-			}
-			if (Input.GetKeyboardState().IsKeyDown(Keys.S))
-			{
-				y += speed; 
-			}
-			if (Input.GetKeyboardState().IsKeyDown(Keys.D))
-			{
-				x += speed;
-				facingDirection = RIGHT; 
-			}
 		}
 
 		/// <summary>

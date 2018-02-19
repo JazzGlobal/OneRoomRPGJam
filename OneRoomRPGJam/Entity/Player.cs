@@ -9,10 +9,9 @@ namespace OneRoomRPGJam
 	//TODO: Seperate code. One Function to One Task.
 	public class Player : CollisionEntity
 	{
-		//Level up stats: 
-		//Health
-		//Speed
-		//Attack
+		Random random = new Random(); 	
+		int score;
+		int experience;
 		int maxHealth; 
 		Vector2 Position;
 		Vector2 mousePos;
@@ -105,10 +104,32 @@ namespace OneRoomRPGJam
 		}
 
 		/// <summary>
+		/// Increases one player state at random by 1 point. 
+		/// </summary>
+		void LevelUp()
+		{
+			var v = random.Next(0, 3);
+			if (v == 0)
+			{
+				health++; 
+			}
+			else if (v == 1)
+			{
+				attack++; 
+			}
+			else if (v == 2)
+			{
+				//If speed < certain amount..
+				//then speed++;
+				//else
+				//then health++ 
+			}
+		}
+		/// <summary>
 		/// Sets character sprite's direction to that of the mouse cursor.
 		/// Status: Deprecated 
 		/// </summary>
-		private void SetDirection()
+		void SetDirection()
 		{
 			mousePos = new Vector2(Input.GetMouseState().X, Input.GetMouseState().Y);
 			direction = mousePos - Position;

@@ -17,7 +17,7 @@ namespace OneRoomRPGJam
 
 			foreach (Keys k in GetPressedKeys())
 			{
-				Console.WriteLine("Key: " + k + " pressed"); 
+				//Console.WriteLine("Key: " + k + " pressed"); 
 			}
 		}
 

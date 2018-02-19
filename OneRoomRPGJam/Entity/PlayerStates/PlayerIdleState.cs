@@ -37,6 +37,7 @@ namespace OneRoomRPGJam
 		public override void Update(GameTime gameTime)
 		{
 			//Update necessary routines. 
+			MovementCheck();
 		}
 
 		/// <summary>

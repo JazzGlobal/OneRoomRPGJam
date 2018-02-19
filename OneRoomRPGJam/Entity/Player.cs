@@ -37,8 +37,8 @@ namespace OneRoomRPGJam
 		{
 			stateMachine = new StateMachine();
 			//AddStates here... 
-			stateMachine.AddState(new PlayerIdleState());
-			stateMachine.AddState(new PlayerWalkingState()); 
+			stateMachine.AddState(new PlayerIdleState(this));
+			stateMachine.AddState(new PlayerWalkingState(this)); 
 			stateMachine.Init(); 
 		}
 
@@ -57,7 +57,8 @@ namespace OneRoomRPGJam
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
 			UpdatePosition(); 
-			CheckInput(); 
+			CheckInput();
+			stateMachine.Update(gameTime);
 		}
 
 		private void UpdatePosition()

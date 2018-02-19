@@ -28,6 +28,7 @@ namespace OneRoomRPGJam
 
 		public override void Update(GameTime gameTime)
 		{
+			Console.WriteLine("Walking update");
 		}
 	}
 }

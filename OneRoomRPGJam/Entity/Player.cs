@@ -13,8 +13,7 @@ namespace OneRoomRPGJam
 		//Health
 		//Speed
 		//Attack
-		
-		int speed = 2;
+		int maxHealth; 
 		Vector2 Position;
 		Vector2 mousePos;
 		Vector2 direction;
@@ -28,16 +27,8 @@ namespace OneRoomRPGJam
 		{
 			//TODO: Split into seperate functions 
 
-			LoadStates(); 
-			//void InitializeVariables()
-
-			facingDirection = "";
-			texture = Content.Load<Texture2D>("knightsprite");
-			x = 300;
-			y = 100; 
-			Position = new Vector2(x,y);
-			width = texture.Width;
-			height = texture.Height;
+			LoadStates();
+			InitializeVariables();
 		}
 
 		private void LoadStates()
@@ -46,6 +37,18 @@ namespace OneRoomRPGJam
 			//AddStates here... 
 			stateMachine.AddState(new PlayerIdleState()); 
 			stateMachine.Init(); 
+		}
+
+		private void InitializeVariables()
+		{
+			facingDirection = "";
+			texture = Content.Load<Texture2D>("knightsprite");
+			x = 300;
+			y = 100;
+			Position = new Vector2(x, y);
+			speed = 2; 
+			width = texture.Width;
+			height = texture.Height;
 		}
 
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)

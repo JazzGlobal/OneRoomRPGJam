@@ -11,9 +11,13 @@ namespace OneRoomRPGJam
 		protected int y;
 		protected int height;
 		protected int width;
+		protected int speed;
+		protected int health;
+		protected int attack;
 		protected Rectangle bounds;
 		protected Texture2D texture;
 		protected static ContentManager Content;
+
 
 		public Rectangle getBounds()
 		{

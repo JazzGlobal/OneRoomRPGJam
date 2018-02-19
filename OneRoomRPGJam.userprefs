@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entity/Entity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entity/Player.cs">
     <Files>
-      <File FileName="OneRoomRPGJam/Entity/Player.cs" Line="13" Column="20" />
+      <File FileName="OneRoomRPGJam/Entity/Player.cs" Line="16" Column="3" />
       <File FileName="OneRoomRPGJam/Entity/PlayerStates/PlayerIdleState.cs" Line="34" Column="33" />
       <File FileName="OneRoomRPGJam/Entity/Enemy.cs" Line="7" Column="3" />
       <File FileName="OneRoomRPGJam/Entity/Entity.cs" Line="1" Column="1" />

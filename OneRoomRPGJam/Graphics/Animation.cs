@@ -1,12 +1,62 @@
-﻿using System;
-namespace OneRoomRPGJam
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace StateDemo.Sprites
 {
-	//TODO Allow animation of sprite sheet. Include direction toggle. 
 	public class Animation
 	{
-		public Animation()
+		bool flip;
+		public int X;
+		public int Y;
+		Texture2D spriteSheet;
+		Rectangle destRect;
+		public Rectangle sourceRect;
+		float elapsed;
+		float delay;
+		int frameWidth;
+		int frameHeight;
+		int frames;
+		int currentFrame = 0;
+		int row;
+		public Animation(Texture2D pSpriteSheet, Rectangle pDestRectangle, int pFrameWidth, int pFrameHeight, int pFrames, float pDelay, int row, bool flip)
 		{
-			
+			spriteSheet = pSpriteSheet;
+			destRect = pDestRectangle;
+			frameHeight = pFrameHeight;
+			frameWidth = pFrameWidth;
+			frames = pFrames;
+			delay = pDelay;
+			this.row = row;
+			this.flip = flip;
+		}
+		public void Update(GameTime gameTime)
+		{
+			elapsed += (float)gameTime.ElapsedGameTime.Milliseconds;
+			if (elapsed >= delay)
+			{
+				if (currentFrame >= frames)
+				{
+					currentFrame = 0;
+				}
+				else
+				{
+					currentFrame++;
+				}
+				elapsed = 0;
+			}
+			sourceRect = new Rectangle(currentFrame * frameWidth, row * frameHeight, frameWidth, frameHeight);
+		}
+		public void Render(SpriteBatch sb)
+		{
+			if (!flip)
+			{
+				sb.Draw(spriteSheet, new Rectangle(X, Y, destRect.Width, destRect.Height), sourceRect, Color.White);
+			}
+			else if (flip)
+			{
+				sb.Draw(spriteSheet, new Rectangle(X, Y, destRect.Width, destRect.Height), sourceRect, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+			}
+
 		}
 	}
 }

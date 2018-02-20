@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Input/Input.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Graphics/Animation.cs">
     <Files>
       <File FileName="OneRoomRPGJam/Entity/Player.cs" Line="41" Column="53" />
       <File FileName="OneRoomRPGJam/Entity/Enemy.cs" Line="7" Column="3" />
@@ -7,6 +7,7 @@
       <File FileName="OneRoomRPGJam/Entity/PlayerStates/PlayerWalkingState.cs" Line="31" Column="37" />
       <File FileName="OneRoomRPGJam/Entity/PlayerStates/PlayerIdleState.cs" Line="40" Column="20" />
       <File FileName="OneRoomRPGJam/Input/Input.cs" Line="20" Column="7" />
+      <File FileName="OneRoomRPGJam/Graphics/Animation.cs" Line="3" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

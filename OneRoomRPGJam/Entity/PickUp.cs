@@ -34,7 +34,7 @@ namespace OneRoomRPGJam
 			}
 		}
 
-		public void OnPickUp(Player player)
+		public void OnUse(Player player)
 		{
 			//TODO Pass the 'size' and 'effect' member to a function called by 'player' and adjust values accordingly
 		}

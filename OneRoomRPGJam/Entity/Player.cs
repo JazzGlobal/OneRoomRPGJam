@@ -9,42 +9,48 @@ namespace OneRoomRPGJam
 	//TODO: Seperate code. One Function to One Task.
 	public class Player : CollisionEntity
 	{
+		//TODO Create way to give Player Objects' State objects potential access to all key presses. 
+		//You can do this by creating a bool function that accepts string parameters to check if a key is being pressed. 
+		//This is better than writing the whole check code per need. 
+
 		Random random = new Random(); 	
-		int score;
-		int experience;
-		int maxHealth; 
+		//int score;
+		//int experience;
+		//int maxHealth; 
 		Vector2 Position;
 		Vector2 mousePos;
 		Vector2 direction;
 		float angle;
-		string facingDirection;
+		//string facingDirection;
 		private const string LEFT = "LEFT";
 		private const string RIGHT = "RIGHT";
 		private StateMachine stateMachine;
 
+		//TODO Decide on how you want to change states in the Player's State classes
+		public enum States
+		{
+			
+		}
 		public static int IDLE = 0;
 		public static int WALKING = 1; 
 
 		public override void Init()
 		{
-			//TODO: Split into seperate functions 
-
 			LoadStates();
 			InitializeVariables();
 		}
 
-		private void LoadStates()
+		void LoadStates()
 		{
 			stateMachine = new StateMachine();
-			//AddStates here... 
+
 			stateMachine.AddState(new PlayerIdleState(this));
 			stateMachine.AddState(new PlayerWalkingState(this)); 
 			stateMachine.Init(); 
 		}
 
-		private void InitializeVariables()
+		void InitializeVariables()
 		{
-			facingDirection = "";
 			texture = Content.Load<Texture2D>("knightsprite");
 			x = 300;
 			y = 100;
@@ -57,24 +63,50 @@ namespace OneRoomRPGJam
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
 			UpdatePosition(); 
-			CheckInput();
 			stateMachine.Update(gameTime);
 		}
 
-		private void UpdatePosition()
+		void UpdatePosition()
 		{
 			Position.X = x;
 			Position.Y = y;
 		}
 
-		private void CheckInput()
+		public enum Directions
 		{
-			SetDirection();
+			UP, DOWN, LEFT, RIGHT
 		}
+
+		/// <summary>
+		/// Move the specified direction.
+		/// </summary>
+		/// <returns>The move.</returns>
+		/// <param name="direction">Direction.</param>
+		public void Move(Directions direction)
+		{
+			if (direction == Directions.UP)
+			{
+				y -= speed; 
+			}
+			else if (direction == Directions.LEFT)
+			{
+				x -= speed; 
+			}
+			else if (direction == Directions.RIGHT)
+			{
+				x += speed; 
+			}
+			else if (direction == Directions.DOWN)
+			{
+				y += speed;
+			}
+		}
+
 		public StateMachine GetStateMachine()
 		{
 			return stateMachine; 
 		}
+
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw(texture, Position, Color.White); 

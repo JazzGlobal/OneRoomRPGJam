@@ -29,11 +29,22 @@ namespace OneRoomRPGJam
 		float remaining_delay = delay;
 		float positionX, velocityX;
 		float positionY, velocityY; 
-		float gravity = 0.5f; 
+		float gravity = 0.5f;
+		StateMachine stateMachine; 
 
 		public Slime()
 		{
-							
+					
+		}
+		public override void Init()
+		{
+			base.Init();
+		}
+		private void LoadStates()
+		{
+			stateMachine = new StateMachine(); 
+			//Add Idle State
+			//Add Jumping State
 		}
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{

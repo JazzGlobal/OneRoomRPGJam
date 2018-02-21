@@ -10,6 +10,7 @@ namespace OneRoomRPGJam
 		public enum Size {LARGE, MEDIUM, SMALL}
 		Effect effect;
 		Size size;
+		float scale;  
 
 		public PickUp(Effect effect, Size size)
 		{
@@ -19,7 +20,18 @@ namespace OneRoomRPGJam
 
 		public override void Init()
 		{
-			//Init texture based on effect and size. 
+			if (size == Size.SMALL)
+			{
+				scale = 0.5f;
+			}
+			else if (size == Size.MEDIUM)
+			{
+				scale = 1;
+			}
+			else if (size == Size.LARGE)
+			{
+				scale = 1.5f;
+			}
 		}
 
 		public void OnPickUp(Player player)
@@ -30,19 +42,7 @@ namespace OneRoomRPGJam
 		public override void Render(SpriteBatch spriteBatch)
 		{
 			//Function renders texture based on it's 'size' member. 
-
-			if (size == Size.SMALL)
-			{
-				spriteBatch.Draw(texture, new Vector2(x, y), Color.White);
-			}
-			else if (size == Size.MEDIUM)
-			{
-				spriteBatch.Draw(texture, new Rectangle(x, y, width * (int)1.5, height * (int)1.5), new Rectangle(x, y, width, height), Color.White);
-			}
-			else if (size == Size.LARGE)
-			{
-				spriteBatch.Draw(texture, new Rectangle(x, y, width * 2, height * 2), new Rectangle(x, y, width, height), Color.White);
-			}
+			spriteBatch.Draw(texture, new Rectangle(x, y, width * (int)scale, height * (int)scale), new Rectangle(x, y, width, height), Color.White);
 		}
 
 		public override void Update(GameTime gameTime)

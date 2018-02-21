@@ -16,14 +16,17 @@ namespace OneRoomRPGJam
 		GameStateManager GSM;
 		private static bool exit = false;
 		private static GraphicsDevice gd;
-		Player p; 
+		Player p;
+		Slime s; 
+
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			GSM = new GameStateManager(Content);
 			IsMouseVisible = true;
-			p = new Player(); 
+			p = new Player();
+			s = new Slime(); 
 		}
 
 		/// <summary>
@@ -72,7 +75,7 @@ namespace OneRoomRPGJam
 			Input.Update(gameTime);
 			p.Update(gameTime); 
 			GSM.Update(gameTime);
-
+			s.Update(gameTime); 
 			if (exit)
 			{
 				Exit(); 

@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input;
 
 namespace OneRoomRPGJam
 {
-	//TODO Implement methods. 	
 	public class PlayerIdleState : PlayerState
 	{
 		//Idle Animation variable

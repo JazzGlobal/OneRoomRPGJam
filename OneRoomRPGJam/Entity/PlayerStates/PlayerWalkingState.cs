@@ -32,7 +32,6 @@ namespace OneRoomRPGJam
 
 		public override void Update(GameTime gameTime)
 		{
-			//TODO Make transition back to idle state if no directional keys are being pressed. 
 			CheckInput();
 		}
 		void CheckInput()

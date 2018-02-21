@@ -1,12 +1,5 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entity/PickUp.cs">
-    <Files>
-      <File FileName="OneRoomRPGJam/Entity/Player.cs" Line="29" Column="65" />
-      <File FileName="OneRoomRPGJam/Entity/PlayerStates/PlayerWalkingState.cs" Line="36" Column="17" />
-      <File FileName="OneRoomRPGJam/Entity/PlayerStates/PlayerIdleState.cs" Line="51" Column="5" />
-      <File FileName="OneRoomRPGJam/Entity/PickUp.cs" Line="9" Column="4" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.ItemProperties.OneRoomRPGJam PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

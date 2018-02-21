@@ -6,12 +6,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace OneRoomRPGJam
 {
-	//TODO: Seperate code. One Function to One Task.
 	public class Player : CollisionEntity
 	{
 		//TODO Create way to give Player Objects' State objects potential access to all key presses. 
 		//You can do this by creating a bool function that accepts string parameters to check if a key is being pressed. 
 		//This is better than writing the whole check code per need. 
+
+		//TODO Create method that uses items 
 
 		Random random = new Random(); 	
 		//int score;

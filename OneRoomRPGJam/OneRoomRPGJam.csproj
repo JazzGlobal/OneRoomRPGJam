@@ -57,6 +57,7 @@
     <Compile Include="Entity\PlayerStates\PlayerIdleState.cs" />
     <Compile Include="Entity\PlayerStates\PlayerWalkingState.cs" />
     <Compile Include="Entity\PlayerStates\PlayerState.cs" />
+    <Compile Include="Entity\PickUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

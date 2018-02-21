@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input;
 
 namespace OneRoomRPGJam
 {
-	//TODO Implement methods. 	
 	public class PlayerIdleState : PlayerState
 	{
 		//Idle Animation variable
@@ -37,14 +36,16 @@ namespace OneRoomRPGJam
 		public override void Update(GameTime gameTime)
 		{
 			//Update necessary routines. 
-			MovementCheck();
+
+			CheckInput();
 		}
 
 		/// <summary>
 		/// Check if input is received. Move character accordingly. 
 		/// </summary>
-		private void MovementCheck()
+		private void CheckInput()
 		{
+			//Movement
 			if (Input.GetKeyboardState().IsKeyDown(Keys.W))
 			{
 				player.GetStateMachine().ChangeState(Player.WALKING); 
@@ -61,6 +62,15 @@ namespace OneRoomRPGJam
 			{
 				player.GetStateMachine().ChangeState(Player.WALKING);
 			}
+			//End of Movement
+
+			//Attack
+
+			//End of Attack
+
+			//Menu
+
+			//End of Menu 
 		}
 	}
 }

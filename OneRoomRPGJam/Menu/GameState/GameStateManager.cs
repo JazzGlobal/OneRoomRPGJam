@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace OneRoomRPGJam
 {
-	//TODO: Create Play state for character and collision testing. 
 	public class GameStateManager
 	{
 		List<GameState> StateList;

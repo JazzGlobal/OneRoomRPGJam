@@ -58,3 +58,4 @@
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/obj/x86/Debug/OneRoomRPGJam.exe
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/obj/x86/Debug/OneRoomRPGJam.pdb
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/MonoGame.Framework.dll
+/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/player/knightidle.xnb

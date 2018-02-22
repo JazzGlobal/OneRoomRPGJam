@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using OneRoomRPGJam.Graphics;
 
 namespace OneRoomRPGJam
 {
@@ -26,6 +29,8 @@ namespace OneRoomRPGJam
 		private const string LEFT = "LEFT";
 		private const string RIGHT = "RIGHT";
 		private StateMachine stateMachine;
+		List<Animation> animationList;
+		Animation currentAnimation; 
 
 		//TODO Decide on how you want to change states in the Player's State classes
 		public enum States
@@ -37,10 +42,20 @@ namespace OneRoomRPGJam
 
 		public override void Init()
 		{
+			LoadAnimations();
 			LoadStates();
 			InitializeVariables();
 		}
 
+		void LoadAnimations()
+		{
+			animationList = new List<Animation>();
+			Texture2D knight = Content.Load<Texture2D>("player/knightidle");
+			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
+											30, 32, 6, 200f, 0, false));
+			
+			currentAnimation = animationList[0]; 
+		}
 		void LoadStates()
 		{
 			stateMachine = new StateMachine();
@@ -59,11 +74,22 @@ namespace OneRoomRPGJam
 			speed = 2; 
 			width = texture.Width;
 			height = texture.Height;
-		}
+			}
+			                 
 
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
-			UpdatePosition(); 
+			foreach (Animation a in animationList)
+			{
+				if (a.X != (int)Position.X || a.Y != (int)Position.Y)
+				{
+					a.X = (int)Position.X;
+					a.Y = (int)Position.Y;
+				}
+			}
+
+			UpdatePosition();
+			currentAnimation.Update(gameTime); 
 			stateMachine.Update(gameTime);
 		}
 
@@ -107,10 +133,15 @@ namespace OneRoomRPGJam
 		{
 			return stateMachine; 
 		}
-
+		public Animation CurrentAnimation
+		{
+			set { currentAnimation = value; }
+		}
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(texture, Position, Color.White); 
+
+			currentAnimation.Render(spriteBatch); 
+			//	spriteBatch.Draw(texture, Position, Color.White); 
 
 			//Old render method. Renders according to variable 'angle'. Makes sprite rotate to mouse. 
 			/*spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y,width, height), null, 

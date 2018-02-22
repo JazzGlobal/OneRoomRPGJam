@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace StateDemo.Sprites
+namespace OneRoomRPGJam.Graphics
 {
 	public class Animation
 	{

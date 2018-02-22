@@ -61,3 +61,6 @@
 /home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/player/knightidle.xnb
 /home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/enemies/slime/slimestill.xnb
 /home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/enemies/slime/slimewalk.xnb
+/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/enemies/slime/slimestill.xnb
+/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/enemies/slime/slimewalk.xnb
+/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/player/knightidle.xnb

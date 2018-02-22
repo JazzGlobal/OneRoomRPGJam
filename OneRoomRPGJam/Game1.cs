@@ -42,7 +42,8 @@ namespace OneRoomRPGJam
 			Entity.SetContentManager(Content);
 			GSM.AddGameState(new MainMenu());
 			GSM.Init();
-			p.Init(); 
+			p.Init();
+			s.Init();
 			base.Initialize();
 		}
 
@@ -94,7 +95,8 @@ namespace OneRoomRPGJam
 			//TODO: Add your drawing code here
 			spriteBatch.Begin();
 			p.Render(spriteBatch);
-			GSM.Render(spriteBatch);
+			s.Render(spriteBatch);
+			//GSM.Render(spriteBatch);
 			spriteBatch.End(); 
 			base.Draw(gameTime);
 		}

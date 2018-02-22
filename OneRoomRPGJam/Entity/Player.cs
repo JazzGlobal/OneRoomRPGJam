@@ -67,14 +67,11 @@ namespace OneRoomRPGJam
 
 		void InitializeVariables()
 		{
-			texture = Content.Load<Texture2D>("knightsprite");
 			x = 300;
 			y = 100;
 			Position = new Vector2(x, y);
 			speed = 2; 
-			width = texture.Width;
-			height = texture.Height;
-			}
+		}
 			                 
 
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)

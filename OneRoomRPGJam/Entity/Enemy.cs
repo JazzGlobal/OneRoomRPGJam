@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using OneRoomRPGJam.Graphics;
+
 namespace OneRoomRPGJam
 {
 	public class Enemy : CollisionEntity
@@ -21,34 +26,140 @@ namespace OneRoomRPGJam
 				
 		}
 	}
+	public abstract class SlimeState : State
+	{
+		protected Slime slime;
+
+		public SlimeState(Slime slime)
+		{
+			this.slime = slime; 
+		}
+	}
 	public class Slime : Enemy
 	{
 		//Make Slime act on a timer. 
 		//TODO Slime should jump every so often to move closer to the player. 
+		Vector2 Position; 
 		const float delay = 4;
 		float remaining_delay = delay;
 		float positionX, velocityX;
 		float positionY, velocityY; 
 		float gravity = 0.5f;
-		StateMachine stateMachine; 
+		StateMachine stateMachine;
+		List<Animation> animationList;
+		Animation currentAnimation; 
 
-		public Slime()
-		{
-					
-		}
 		public override void Init()
 		{
-			base.Init();
+			x = 50;
+			y = 50;
+			Position = new Vector2(x, y); 
+			LoadAnimations(); 
+			LoadStates(); 
 		}
-		private void LoadStates()
+		void LoadAnimations()
 		{
-			stateMachine = new StateMachine(); 
-			//Add Idle State
-			//Add Jumping State
+			animationList = new List<Animation>();
+			Texture2D slimeidle = Content.Load<Texture2D>("enemies/slime/slimestill");
+			Texture2D slimewalk = Content.Load<Texture2D>("enemies/slime/slimewalk");
+
+			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 32, 1, 200f, 1, false)); //Right idle
+			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 32, 1, 200f, 1, true)); //Left idle
+
+			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 28, 15), 28, 15, 1, 200f, 1, false)); 
+			currentAnimation = animationList[0];
+		}
+		void LoadStates()
+		{
+			stateMachine = new StateMachine();
+			stateMachine.AddState(new IdleState(this));
+			stateMachine.AddState(new SeekState(this));
+			stateMachine.AddState(new JumpState(this));
 		}
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
-			//This jumping logic will not work. Constant gravity is not desired. 
+			foreach (Animation a in animationList)
+			{
+				if (a.X != (int)Position.X || a.Y != (int)Position.Y)
+				{
+					a.X = (int)Position.X;
+					a.Y = (int)Position.Y;
+				}
+			}
+			UpdatePosition();
+			currentAnimation.Update(gameTime); 
+		}
+		void UpdatePosition()
+		{
+			Position.X = x;
+			Position.Y = y;
+		}
+		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+		{
+			currentAnimation.Render(spriteBatch); 
+		}
+		public override void Move()
+		{
+			
+			Console.WriteLine("Slime moved"); 
+		}
+
+		class IdleState : SlimeState
+		{
+			
+			public IdleState(Slime slime) : base(slime)
+			{
+			}
+			public override void Init()
+			{
+			}
+
+			public override void OnEnter()
+			{
+			}
+
+			public override void OnExit()
+			{
+			}
+
+			public override void Render(SpriteBatch spriteBatch)
+			{
+			}
+
+			public override void Update(GameTime gameTime)
+			{
+			}
+		}
+		class SeekState : SlimeState
+		{
+			public SeekState(Slime slime) : base(slime)
+			{
+			}
+			public override void Init()
+			{
+			}
+
+			public override void OnEnter()
+			{
+			}
+
+			public override void OnExit()
+			{
+			}
+
+			public override void Render(SpriteBatch spriteBatch)
+			{
+			}
+
+			public override void Update(GameTime gameTime)
+			{
+			}
+		}
+		class JumpState : SlimeState
+		{
+
+			/**
+			 * 			//This jumping logic will not work. Constant gravity is not desired. 
 			//Can the Slime jump in all four directions? 
 			//If so, how do we make the Slime look as if it is jumping when jumping towards the bottom or towards the top?
 			
@@ -56,7 +167,7 @@ namespace OneRoomRPGJam
 			//Make Slime jump 
 			var time = (float) gameTime.ElapsedGameTime.TotalSeconds;
 			remaining_delay -= time;
-			Console.WriteLine(remaining_delay); 
+
 			if (remaining_delay <= 0)
 			{
 				Move();
@@ -65,15 +176,31 @@ namespace OneRoomRPGJam
 			positionX += velocityX;
 			positionY += velocityY;
 			velocityY += gravity * (float) gameTime.ElapsedGameTime.TotalMilliseconds;
-		}
-		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
-		{
-			base.Render(spriteBatch);
-		}
-		public override void Move()
-		{
-			
-			Console.WriteLine("Slime moved"); 
+
+			 * 
+			 **/
+			public JumpState(Slime slime) : base(slime)
+			{
+			}
+			public override void Init()
+			{
+			}
+
+			public override void OnEnter()
+			{
+			}
+
+			public override void OnExit()
+			{
+			}
+
+			public override void Render(SpriteBatch spriteBatch)
+			{
+			}
+
+			public override void Update(GameTime gameTime)
+			{
+			}
 		}
 	}
 }

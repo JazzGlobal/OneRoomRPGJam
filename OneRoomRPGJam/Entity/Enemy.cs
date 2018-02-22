@@ -63,10 +63,12 @@ namespace OneRoomRPGJam
 			Texture2D slimeidle = Content.Load<Texture2D>("enemies/slime/slimestill");
 			Texture2D slimewalk = Content.Load<Texture2D>("enemies/slime/slimewalk");
 
-			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 32, 1, 200f, 1, false)); //Right idle
-			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 32, 1, 200f, 1, true)); //Left idle
+			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 21, 0, 200f, 0, false)); //Right idle
+			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 21, 0, 200f, 0, true)); //Left idle
 
-			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 28, 15), 28, 15, 1, 200f, 1, false)); 
+			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 29, 15), 29, 15, 1, 200f, 0, false)); //Right walk
+			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 29, 15), 29, 15, 1, 200f, 0, true)); //Left walk
+
 			currentAnimation = animationList[0];
 		}
 		void LoadStates()

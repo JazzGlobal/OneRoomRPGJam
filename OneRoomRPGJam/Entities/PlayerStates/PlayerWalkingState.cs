@@ -37,26 +37,29 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 		}
 		void CheckInput()
 		{
-			if (Input.GetKeyboardState().IsKeyDown(Keys.W))
+			if (player.keyboard.IsKeyDown(Keys.W))
 			{
-				player.Move(Player.Directions.UP);
+				//player.Move(Player.Directions.UP);
+				player.Y -= player.Speed;
 			}
-			else if (Input.GetKeyboardState().IsKeyDown(Keys.A))
+			if (player.keyboard.IsKeyDown(Keys.A))
 			{
-				player.Move(Player.Directions.LEFT);
+				//player.Move(Player.Directions.LEFT);
+				player.X -= player.Speed;
 			}
-			else if (Input.GetKeyboardState().IsKeyDown(Keys.S))
+			if (player.keyboard.IsKeyDown(Keys.S))
 			{
-				player.Move(Player.Directions.DOWN);
-
+				//player.Move(Player.Directions.DOWN);
+				player.Y += player.Speed; 
 			}
-			else if (Input.GetKeyboardState().IsKeyDown(Keys.D))
+			if (player.keyboard.IsKeyDown(Keys.D))
 			{
-				player.Move(Player.Directions.RIGHT);
+				//player.Move(Player.Directions.RIGHT);
+				player.X += player.Speed; 
 			}
 			else
 			{
-				player.ChangeState(Player.States.IDLE);
+				//player.ChangeState(Player.States.IDLE);
 			}
 		}
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using OneRoomRPGJam.Entities.EntityStates;
 using OneRoomRPGJam.Entities.PlayerStates;
 using OneRoomRPGJam.Graphics;
@@ -11,22 +12,43 @@ namespace OneRoomRPGJam.Entities
 	public class Player : CollisionEntity
 	{
 		//TODO Create method that uses items 
+		//TODO Create hitboxes for player
+		//Create body box 
+		//These boxes should not be the entire rectangle of the current sprite. 
 
-		Random random = new Random(); 	
+		public KeyboardState keyboard;
+		Random random = new Random();
 		//int score;
 		//int experience;
 		//int maxHealth; 
 		Vector2 Position;
-		Vector2 mousePos;
-		Vector2 direction;
 		float angle;
 		//string facingDirection;
 		private const string LEFT = "LEFT";
 		private const string RIGHT = "RIGHT";
 		private StateMachine stateMachine;
 		List<Animation> animationList;
-		Animation currentAnimation; 
-
+		Animation currentAnimation;
+		public Animation CurrentAnimation
+		{
+			get{return currentAnimation;}
+			set{currentAnimation = value;}
+		}
+		public int X
+		{
+			get { return x;}
+			set { x = value;}
+		}
+		public int Y
+		{
+			get { return y; }
+			set { y = value; }
+		}
+		public int Speed
+		{
+			get { return speed; }
+			set { speed = value; }
+		}
 		public enum States
 		{
 			IDLE, WALKING, ATTACKING, HURT
@@ -61,6 +83,7 @@ namespace OneRoomRPGJam.Entities
 		{
 			x = 300;
 			y = 100;
+			health = 100; 
 			Position = new Vector2(x, y);
 			speed = 2; 
 		}
@@ -68,24 +91,26 @@ namespace OneRoomRPGJam.Entities
 
 		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
 		{
-			foreach (Animation a in animationList)
-			{
-				if (a.X != (int)Position.X || a.Y != (int)Position.Y)
-				{
-					a.X = (int)Position.X;
-					a.Y = (int)Position.Y;
-				}
-			}
+			keyboard = Keyboard.GetState(); 
+
+			stateMachine.Update(gameTime);
 
 			UpdatePosition();
+			if (currentAnimation.X != (int)Position.X || currentAnimation.Y != (int)Position.Y)
+				{
+					currentAnimation.X = (int)Position.X;
+					currentAnimation.Y = (int)Position.Y;
+				}
+
+
 			currentAnimation.Update(gameTime); 
-			stateMachine.Update(gameTime);
 		}
 
 		void UpdatePosition()
 		{
 			Position.X = x;
 			Position.Y = y;
+			
 		}
 
 		public enum Directions
@@ -104,15 +129,15 @@ namespace OneRoomRPGJam.Entities
 			{
 				y -= speed; 
 			}
-			else if (direction == Directions.LEFT)
+			if (direction == Directions.LEFT)
 			{
 				x -= speed; 
 			}
-			else if (direction == Directions.RIGHT)
+			if (direction == Directions.RIGHT)
 			{
 				x += speed; 
 			}
-			else if (direction == Directions.DOWN)
+			if (direction == Directions.DOWN)
 			{
 				y += speed;
 			}
@@ -130,14 +155,7 @@ namespace OneRoomRPGJam.Entities
 		}
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
-
 			currentAnimation.Render(spriteBatch); 
-			//	spriteBatch.Draw(texture, Position, Color.White); 
-
-			//Old render method. Renders according to variable 'angle'. Makes sprite rotate to mouse. 
-			/*spriteBatch.Draw(texture, new Rectangle((int)Position.X, (int)Position.Y,width, height), null, 
-			                 Color.White, angle, new Vector2(width / 2, height / 2), SpriteEffects.None, 0);
-			*/
 		}
 
 		/// <summary>
@@ -161,17 +179,6 @@ namespace OneRoomRPGJam.Entities
 				//else
 				//then health++ 
 			}
-		}
-		/// <summary>
-		/// Sets character sprite's direction to that of the mouse cursor.
-		/// Status: Deprecated 
-		/// </summary>
-		void SetDirection()
-		{
-			mousePos = new Vector2(Input.GetMouseState().X, Input.GetMouseState().Y);
-			direction = mousePos - Position;
-
-			angle = (float)(Math.Atan2(direction.Y, direction.X));
 		}
 	}
 }

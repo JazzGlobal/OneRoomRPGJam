@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace OneRoomRPGJam
-{	//TODO Finish making placeholder asset buttons. 
+{	
 	public class MainMenu : GameState
 	{
 		Button startGameButton;

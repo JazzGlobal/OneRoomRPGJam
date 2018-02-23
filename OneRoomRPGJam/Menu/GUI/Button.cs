@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 namespace OneRoomRPGJam
 {
 	//TODO: Fix Button click bug. Buttons click more than once per press. 
+	//This issue may also be present when interacting with the mouse during gameplay (Sword attack and spell casts). 
 	public class Button
 	{
 		int x;

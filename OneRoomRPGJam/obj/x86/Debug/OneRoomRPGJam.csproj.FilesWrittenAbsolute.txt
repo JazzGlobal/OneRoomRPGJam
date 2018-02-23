@@ -64,3 +64,4 @@
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/enemies/slime/slimestill.xnb
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/enemies/slime/slimewalk.xnb
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/player/knightidle.xnb
+/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/map/placeholdermap.xnb

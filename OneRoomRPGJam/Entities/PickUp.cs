@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using OneRoomRPGJam.Entities;
 
-namespace OneRoomRPGJam
+namespace OneRoomRPGJam.Entities
 {
 	public class PickUp : CollisionEntity
 	{

@@ -3,6 +3,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using OneRoomRPGJam.Entities;
 
 namespace OneRoomRPGJam
 {
@@ -17,7 +18,7 @@ namespace OneRoomRPGJam
 		private static bool exit = false;
 		private static GraphicsDevice gd;
 		Player p;
-		Slime s; 
+		Slime s;
 
 		public Game1()
 		{
@@ -26,7 +27,7 @@ namespace OneRoomRPGJam
 			GSM = new GameStateManager(Content);
 			IsMouseVisible = true;
 			p = new Player();
-			s = new Slime(); 
+			s = new Slime(new Color(200, 50, 200));
 		}
 
 		/// <summary>
@@ -37,7 +38,6 @@ namespace OneRoomRPGJam
 		/// </summary>
 		protected override void Initialize()
 		{
-			// TODO: Add your initialization logic here
 			gd = graphics.GraphicsDevice;
 			Entity.SetContentManager(Content);
 			GSM.AddGameState(new MainMenu());
@@ -55,7 +55,6 @@ namespace OneRoomRPGJam
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
-			//TODO: use this.Content to load your game content here 
 		}
 
 		/// <summary>
@@ -72,7 +71,6 @@ namespace OneRoomRPGJam
 				Exit();
 #endif
 
-			// TODO: Add your update logic here
 			Input.Update(gameTime);
 			p.Update(gameTime); 
 			GSM.Update(gameTime);
@@ -92,7 +90,6 @@ namespace OneRoomRPGJam
 		{
 			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-			//TODO: Add your drawing code here
 			spriteBatch.Begin();
 			p.Render(spriteBatch);
 			s.Render(spriteBatch);

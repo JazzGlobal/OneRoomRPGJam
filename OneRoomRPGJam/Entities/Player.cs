@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using OneRoomRPGJam.Entities.EntityStates;
+using OneRoomRPGJam.Entities.PlayerStates;
 using OneRoomRPGJam.Graphics;
 
-namespace OneRoomRPGJam
+namespace OneRoomRPGJam.Entities
 {
 	public class Player : CollisionEntity
 	{
-		//TODO Create way to give Player Objects' State objects potential access to all key presses. 
-		//You can do this by creating a bool function that accepts string parameters to check if a key is being pressed. 
-		//This is better than writing the whole check code per need. 
-
 		//TODO Create method that uses items 
 
 		Random random = new Random(); 	
@@ -32,13 +27,10 @@ namespace OneRoomRPGJam
 		List<Animation> animationList;
 		Animation currentAnimation; 
 
-		//TODO Decide on how you want to change states in the Player's State classes
 		public enum States
 		{
-			
+			IDLE, WALKING, ATTACKING, HURT
 		}
-		public static int IDLE = 0;
-		public static int WALKING = 1; 
 
 		public override void Init()
 		{
@@ -125,14 +117,16 @@ namespace OneRoomRPGJam
 				y += speed;
 			}
 		}
-
-		public StateMachine GetStateMachine()
+		public void ChangeState(Player.States state)
 		{
-			return stateMachine; 
-		}
-		public Animation CurrentAnimation
-		{
-			set { currentAnimation = value; }
+			if (state == Player.States.IDLE)
+			{
+				stateMachine.ChangeState(0);
+			}
+			else if (state == Player.States.WALKING)
+			{
+				stateMachine.ChangeState(1);
+			}
 		}
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{

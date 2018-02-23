@@ -18,6 +18,8 @@ namespace OneRoomRPGJam.Graphics
 		int frames;
 		int currentFrame = 0;
 		int row;
+		Color color = Color.White;
+
 		public Animation(Texture2D pSpriteSheet, Rectangle pDestRectangle, int pFrameWidth, int pFrameHeight, int pFrames, float pDelay, int row, bool flip)
 		{
 			spriteSheet = pSpriteSheet;
@@ -28,6 +30,18 @@ namespace OneRoomRPGJam.Graphics
 			delay = pDelay;
 			this.row = row;
 			this.flip = flip;
+		}
+		public Animation(Texture2D pSpriteSheet, Rectangle pDestRectangle, int pFrameWidth, int pFrameHeight, int pFrames, float pDelay, int row, bool flip, Color color)
+		{
+			spriteSheet = pSpriteSheet;
+			destRect = pDestRectangle;
+			frameHeight = pFrameHeight;
+			frameWidth = pFrameWidth;
+			frames = pFrames;
+			delay = pDelay;
+			this.row = row;
+			this.flip = flip;
+			this.color = color;
 		}
 		public void Update(GameTime gameTime)
 		{
@@ -50,11 +64,11 @@ namespace OneRoomRPGJam.Graphics
 		{
 			if (!flip)
 			{
-				sb.Draw(spriteSheet, new Rectangle(X, Y, destRect.Width, destRect.Height), sourceRect, Color.White);
+				sb.Draw(spriteSheet, new Rectangle(X, Y, destRect.Width, destRect.Height), sourceRect, color);
 			}
 			else if (flip)
 			{
-				sb.Draw(spriteSheet, new Rectangle(X, Y, destRect.Width, destRect.Height), sourceRect, Color.White, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+				sb.Draw(spriteSheet, new Rectangle(X, Y, destRect.Width, destRect.Height), sourceRect, color, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
 			}
 
 		}

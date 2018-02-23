@@ -1,5 +1,8 @@
 ﻿using System;
-namespace OneRoomRPGJam
+using OneRoomRPGJam.Entities;
+using OneRoomRPGJam.Entities.EntityStates;
+
+namespace OneRoomRPGJam.Entities.PlayerStates
 {
 	public abstract class PlayerState : State
 	{

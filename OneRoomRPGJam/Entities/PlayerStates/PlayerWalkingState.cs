@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using OneRoomRPGJam.Entities;
 
-namespace OneRoomRPGJam
+namespace OneRoomRPGJam.Entities.PlayerStates
 {
 	public class PlayerWalkingState : PlayerState
 	{
@@ -55,7 +56,7 @@ namespace OneRoomRPGJam
 			}
 			else
 			{
-				player.GetStateMachine().ChangeState(Player.IDLE);
+				player.ChangeState(Player.States.IDLE);
 			}
 		}
 

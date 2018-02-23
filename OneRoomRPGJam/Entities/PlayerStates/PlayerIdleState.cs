@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using OneRoomRPGJam.Entities;
 
-namespace OneRoomRPGJam
+namespace OneRoomRPGJam.Entities.PlayerStates
 {
 	public class PlayerIdleState : PlayerState
 	{
@@ -48,19 +49,19 @@ namespace OneRoomRPGJam
 			//Movement
 			if (Input.GetKeyboardState().IsKeyDown(Keys.W))
 			{
-				player.GetStateMachine().ChangeState(Player.WALKING); 
+				player.ChangeState(Player.States.WALKING); 
 			}
 			if (Input.GetKeyboardState().IsKeyDown(Keys.A))
 			{
-				player.GetStateMachine().ChangeState(Player.WALKING);
+				player.ChangeState(Player.States.WALKING);
 			}
 			if (Input.GetKeyboardState().IsKeyDown(Keys.S))
 			{
-				player.GetStateMachine().ChangeState(Player.WALKING);
+				player.ChangeState(Player.States.WALKING);
 			}
 			if (Input.GetKeyboardState().IsKeyDown(Keys.D))
 			{
-				player.GetStateMachine().ChangeState(Player.WALKING);
+				player.ChangeState(Player.States.WALKING);
 			}
 			//End of Movement
 

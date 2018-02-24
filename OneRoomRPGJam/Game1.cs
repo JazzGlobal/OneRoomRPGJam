@@ -19,15 +19,19 @@ namespace OneRoomRPGJam
 		private static GraphicsDevice gd;
 		Player p;
 		Slime s;
+		Room r; 
 
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
+			graphics.PreferredBackBufferWidth = 640;
+			graphics.PreferredBackBufferHeight = 480;
 			Content.RootDirectory = "Content";
 			GSM = new GameStateManager(Content);
 			IsMouseVisible = true;
 			p = new Player();
 			s = new Slime(new Color(200, 50, 200));
+			r = new Room(); 
 		}
 
 		/// <summary>
@@ -44,6 +48,7 @@ namespace OneRoomRPGJam
 			GSM.Init();
 			p.Init();
 			s.Init();
+			r.Init(); 
 			base.Initialize();
 		}
 
@@ -71,7 +76,7 @@ namespace OneRoomRPGJam
 				Exit();
 #endif
 
-			Input.Update(gameTime);
+			r.Update(gameTime); 
 			p.Update(gameTime); 
 			GSM.Update(gameTime);
 			s.Update(gameTime); 
@@ -91,6 +96,7 @@ namespace OneRoomRPGJam
 			graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
 			spriteBatch.Begin();
+			r.Render(spriteBatch); 
 			p.Render(spriteBatch);
 			s.Render(spriteBatch);
 			//GSM.Render(spriteBatch);

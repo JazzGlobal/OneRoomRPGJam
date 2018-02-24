@@ -8,7 +8,6 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 {
 	public class PlayerIdleState : PlayerState
 	{
-		//Idle Animation variable
 
 		public PlayerIdleState(Player player) : base(player)
 		{
@@ -47,21 +46,10 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 		private void CheckInput()
 		{
 			//Movement
-			if (Input.GetKeyboardState().IsKeyDown(Keys.W))
+			if (player.keyboard.IsKeyDown(Keys.W) || player.keyboard.IsKeyDown(Keys.A) || player.keyboard.IsKeyDown(Keys.S)
+			    || player.keyboard.IsKeyDown(Keys.D))
 			{
 				player.ChangeState(Player.States.WALKING); 
-			}
-			if (Input.GetKeyboardState().IsKeyDown(Keys.A))
-			{
-				player.ChangeState(Player.States.WALKING);
-			}
-			if (Input.GetKeyboardState().IsKeyDown(Keys.S))
-			{
-				player.ChangeState(Player.States.WALKING);
-			}
-			if (Input.GetKeyboardState().IsKeyDown(Keys.D))
-			{
-				player.ChangeState(Player.States.WALKING);
 			}
 			//End of Movement
 

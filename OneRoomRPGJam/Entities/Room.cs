@@ -19,7 +19,7 @@ namespace OneRoomRPGJam.Entities
 		}
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
-			base.Render(spriteBatch);
+			spriteBatch.Draw(texture, new Vector2(0, 0), Color.White); 
 		}
 	}
 }

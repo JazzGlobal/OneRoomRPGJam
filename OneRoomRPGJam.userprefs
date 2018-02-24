@@ -1,15 +1,10 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/System/CollisionHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entities/Player.cs">
     <Files>
-      <File FileName="OneRoomRPGJam/Game1.cs" Line="38" Column="17" />
-      <File FileName="OneRoomRPGJam/Entities/Entity.cs" Line="13" Column="23" />
-      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerAttackingState.cs" Line="10" Column="35" />
-      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerIdleState.cs" Line="7" Column="33" />
-      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerState.cs" Line="5" Column="33" />
-      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerWalkingState.cs" Line="11" Column="23" />
-      <File FileName="OneRoomRPGJam/Entities/CollisionEntity.cs" Line="11" Column="42" />
-      <File FileName="OneRoomRPGJam/Entities/Player.cs" Line="7" Column="7" />
-      <File FileName="OneRoomRPGJam/System/CollisionHandler.cs" Line="11" Column="3" />
+      <File FileName="OneRoomRPGJam/Game1.cs" Line="28" Column="45" />
+      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerWalkingState.cs" Line="42" Column="35" />
+      <File FileName="OneRoomRPGJam/Entities/Player.cs" Line="30" Column="26" />
+      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerIdleState.cs" Line="60" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

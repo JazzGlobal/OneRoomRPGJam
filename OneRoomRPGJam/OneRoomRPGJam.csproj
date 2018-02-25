@@ -61,6 +61,9 @@
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\EntityStates\State.cs" />
     <Compile Include="Entities\EntityStates\StateMachine.cs" />
+    <Compile Include="Entities\Controller.cs" />
+    <Compile Include="System\EntityEvents.cs" />
+    <Compile Include="Graphics\Outline.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

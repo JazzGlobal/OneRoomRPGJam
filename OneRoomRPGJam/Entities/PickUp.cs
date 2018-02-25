@@ -90,10 +90,10 @@ namespace OneRoomRPGJam.Entities
 				                 new Rectangle(x, y, width, height), Color.White);
 			}		
 		}
-
-		public override void Update(GameTime gameTime)
+		public void OnCollisionWithPlayer()
 		{
-			base.Update(gameTime);
+			//Check if player actually picked up item. 
+			Kill(); 
 		}
 	}
 }

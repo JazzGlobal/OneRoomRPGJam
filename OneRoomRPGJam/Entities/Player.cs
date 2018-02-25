@@ -6,16 +6,16 @@ using Microsoft.Xna.Framework.Input;
 using OneRoomRPGJam.Entities.EntityStates;
 using OneRoomRPGJam.Entities.PlayerStates;
 using OneRoomRPGJam.Graphics;
+using OneRoomRPGJam.System;
 
 namespace OneRoomRPGJam.Entities
 {
 	public class Player : CollisionEntity
 	{
-		//TODO Create method that uses items 
-		//TODO Create hitboxes for player
+		//TODO Fix bug where hitbox doesnt flip to match sprite
 		//Create body box 
 		//These boxes should not be the entire rectangle of the current sprite. 
-
+		List<PickUp> inventory; 
 		public KeyboardState keyboard;
 		Random random = new Random();
 		//int score;
@@ -23,12 +23,12 @@ namespace OneRoomRPGJam.Entities
 		//int maxHealth; 
 		Vector2 Position;
 		float angle;
-		//string facingDirection;
 		private const string LEFT = "LEFT";
 		private const string RIGHT = "RIGHT";
 		private StateMachine stateMachine;
 		List<Animation> animationList;
 		Animation currentAnimation;
+
 		public Animation CurrentAnimation
 		{
 			get{return currentAnimation;}
@@ -61,6 +61,12 @@ namespace OneRoomRPGJam.Entities
 			InitializeVariables();
 		}
 
+		public Player() : base()
+		{
+			CollisionHandler.OnPlayerCollisionWithEnemy += OnCollisionWithEnemy;
+			CollisionHandler.OnPlayerCollisionWithPickUp += OnCollisionWithPickUp; 
+		}
+
 		void LoadAnimations()
 		{
 			animationList = new List<Animation>();
@@ -85,17 +91,18 @@ namespace OneRoomRPGJam.Entities
 			y = 100;
 			health = 100; 
 			Position = new Vector2(x, y);
-			speed = 2; 
+			speed = 2;
+			inventory = new List<PickUp>(); 
 		}
 			                 
-
-		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+		public override void Update(GameTime gameTime)
 		{
-			keyboard = Keyboard.GetState(); 
-
+			keyboard = Keyboard.GetState();
+			PrintInformation();
 			stateMachine.Update(gameTime);
-
+			hitbox = new Rectangle(x + 2, y, width - 15, height);
 			UpdatePosition();
+			UpdateDimmensions();
 			if (currentAnimation.X != (int)Position.X || currentAnimation.Y != (int)Position.Y)
 				{
 					currentAnimation.X = (int)Position.X;
@@ -105,12 +112,15 @@ namespace OneRoomRPGJam.Entities
 
 			currentAnimation.Update(gameTime); 
 		}
-
+		void UpdateDimmensions()
+		{
+			width = currentAnimation.sourceRect.Width;
+			height = currentAnimation.sourceRect.Height; 
+		}
 		void UpdatePosition()
 		{
 			Position.X = x;
 			Position.Y = y;
-			
 		}
 
 		public enum Directions
@@ -142,6 +152,7 @@ namespace OneRoomRPGJam.Entities
 				y += speed;
 			}
 		}
+
 		public void ChangeState(Player.States state)
 		{
 			if (state == Player.States.IDLE)
@@ -153,9 +164,27 @@ namespace OneRoomRPGJam.Entities
 				stateMachine.ChangeState(1);
 			}
 		}
+
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
 		{
 			currentAnimation.Render(spriteBatch); 
+		}
+
+		public override void OnCollisionWithWall()
+		{
+			//Dont let player move through wall. 
+		}
+		public void OnCollisionWithEnemy()
+		{
+			//Knock player back
+		}
+		public void OnCollisionWithPickUp(CollisionEntity item)
+		{
+			if (inventory.Count < 4)
+			{
+				inventory.Add((PickUp) item);
+			}
+			//else do nothing
 		}
 
 		/// <summary>
@@ -179,6 +208,13 @@ namespace OneRoomRPGJam.Entities
 				//else
 				//then health++ 
 			}
+		}
+		void PrintInformation()
+		{
+			Console.Write("X: " + x + "\n" + 
+			              "Y: " + y + "\n" + 
+			             "Width: " + width + "\n" + 
+			             "Height: " + height + "\n");
 		}
 	}
 }

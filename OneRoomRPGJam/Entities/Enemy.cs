@@ -5,27 +5,33 @@ using Microsoft.Xna.Framework.Graphics;
 using OneRoomRPGJam.Entities;
 using OneRoomRPGJam.Entities.EntityStates;
 using OneRoomRPGJam.Graphics;
+using OneRoomRPGJam.System;
 
 namespace OneRoomRPGJam.Entities
 {
 	public class Enemy : CollisionEntity
 	{
-		public Enemy()
+		public Enemy() : base()
 		{
-			
+			CollisionHandler.OnEnemyCollisionWithPlayerSword += Hurt; 
 		}
 		public override void Init()
 		{
 		}
-		public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+		public override void Update(GameTime gameTime)
 		{
 		}
-		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+		public override void Render(SpriteBatch spriteBatch)
 		{
 		}
 		public virtual void Move()
 		{
 				
+		}
+		public void Hurt(CollisionEntity player)
+		{
+			Player p = (Player)player; 
+			//Take damage based on the player's current attack power. 
 		}
 	}
 	public abstract class SlimeState : State
@@ -107,7 +113,7 @@ namespace OneRoomRPGJam.Entities
 			Position.X = x;
 			Position.Y = y;
 		}
-		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+		public override void Render(SpriteBatch spriteBatch)
 		{
 			currentAnimation.Render(spriteBatch); 
 		}
@@ -168,14 +174,13 @@ namespace OneRoomRPGJam.Entities
 			{
 			}
 		}
+		/**Previously I said the below wont work.We have determined that the slime, if not aligned with the player on the Y-axis,
+			 will walk with the goal of aligning to the player(again, y-axis). After alignment is finished, the slime will enter the 
+			 "JumpState" and begin jumping.After finishing the jump, the slime will return to its "SeekState".
+		**/
 		class JumpState : SlimeState
 		{
-
 			/**
-			 * 			//This jumping logic will not work. Constant gravity is not desired. 
-			//Can the Slime jump in all four directions? 
-			//If so, how do we make the Slime look as if it is jumping when jumping towards the bottom or towards the top?
-			
 			//if timer is up 
 			//Make Slime jump 
 			var time = (float) gameTime.ElapsedGameTime.TotalSeconds;
@@ -215,5 +220,13 @@ namespace OneRoomRPGJam.Entities
 			{
 			}
 		}
+	}
+	public class Bat : CollisionEntity 
+	{
+		//Only one behavior: Fly randomly without seeking the player. Will use a wander design. 
+	}
+	public class SkeletonMan : CollisionEntity
+	{
+		//Behavior: Seek -> Throw Bone 
 	}
 }

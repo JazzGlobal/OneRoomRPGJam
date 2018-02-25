@@ -1,12 +1,5 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entities/Player.cs">
-    <Files>
-      <File FileName="OneRoomRPGJam/Game1.cs" Line="28" Column="45" />
-      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerWalkingState.cs" Line="42" Column="35" />
-      <File FileName="OneRoomRPGJam/Entities/Player.cs" Line="30" Column="26" />
-      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerIdleState.cs" Line="60" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.ItemProperties.OneRoomRPGJam PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

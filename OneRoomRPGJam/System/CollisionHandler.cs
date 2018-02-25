@@ -12,30 +12,56 @@ namespace OneRoomRPGJam.System
 
 	public class CollisionHandler
 	{
-		List<CollisionEntity> entitylist;
-
 		//Partitions
 		//TODO Define partitions equally. 
-		Rectangle quad1, quad2, quad3, quad4; 
+		public static Rectangle quad1, quad2, quad3, quad4; 
 
-		public CollisionHandler()
+		public delegate void OnCollisionEventHandler();
+		public static event OnCollisionEventHandler OnCollisionWithWall;
+		public static event OnCollisionEventHandler OnPlayerCollisionWithEnemy;
+
+		public delegate void OnPlayerCollisionEventHandler(CollisionEntity collisionEntity); 
+		public static event OnPlayerCollisionEventHandler OnPlayerCollisionWithPickUp;
+		public static event OnPlayerCollisionEventHandler OnEnemyCollisionWithPlayerSword;
+
+		/// <summary>
+		/// General boundary collision method for all collision entities. 
+		/// </summary>
+		public static void CollisionWithWall()
 		{
-			entitylist = new List<CollisionEntity>(); 
+			if (OnCollisionWithWall != null)
+			{
+				OnCollisionWithWall();
+			}
 		}
-		public void Update(GameTime gameTime)
+
+		public static void PlayerCollisionWithEnemy()
 		{
-			//TODO Check for specific collisions depending on different criteria
-			//PlayerAttackState collisions should only be checked in the section that the player is in.
-			//foreach enemy in player.currentSection
-			//if player.currentState == attackingstate
-			//check collision between entity and attack hitbox
+			if (OnPlayerCollisionWithEnemy != null)
+			{
+				OnPlayerCollisionWithEnemy();
+			}
+		}
 
-			//Player to Enemy body collision checks should only occur if the player and the enemy are in the same section.
-			//foreach enemy in player.currentSection
-			//check collision between player and enemy 
+		public void PlayerCollisionWithPickup(CollisionEntity pickup)
+		{
+			if (OnPlayerCollisionWithPickUp != null)
+			{
+				OnPlayerCollisionWithPickUp(pickup); 
+			}
+		}
 
-			//Projectile collisions should only be checked in the section of the projectiles current location (this data will be updated per loop)
-			//foreach projectile 
+		public static void EnemyCollisionWithPlayerSword(Player player)
+		{
+			if (OnEnemyCollisionWithPlayerSword != null)
+			{
+				OnEnemyCollisionWithPlayerSword(player);
+			}
+		}
+
+		public static void Update(GameTime gameTime)
+		{
+
 		}
 
 		public static bool Collision(Rectangle r1, Rectangle r2)

@@ -1,6 +1,13 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entities/Room.cs">
+    <Files>
+      <File FileName="OneRoomRPGJam/System/CollisionHandler.cs" Line="85" Column="65" />
+      <File FileName="OneRoomRPGJam/Entities/Player.cs" Line="189" Column="35" />
+      <File FileName="OneRoomRPGJam/Game1.cs" Line="109" Column="27" />
+      <File FileName="OneRoomRPGJam/Entities/Room.cs" Line="13" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
   <MonoDevelop.Ide.ItemProperties.OneRoomRPGJam PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

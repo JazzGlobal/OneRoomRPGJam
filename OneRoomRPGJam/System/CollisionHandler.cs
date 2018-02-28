@@ -59,14 +59,33 @@ namespace OneRoomRPGJam.System
 			}
 		}
 
-		public static void Update(GameTime gameTime)
+		public static void Update(GameTime gameTime, Player p, List<CollisionEntity> enemylist)
 		{
-
+			PlayerCollision(p);
 		}
 
 		public static bool Collision(Rectangle r1, Rectangle r2)
 		{
 			return r1.Intersects(r2);
+		}
+		static void PlayerCollision(Player p)
+		{
+			if (p.X <= Room.LEFT)
+			{
+				OnCollisionWithWall();
+			}
+			if (p.Y <= Room.TOP)
+			{
+				OnCollisionWithWall();
+			}
+			if (p.X + p.CurrentAnimation.sourceRect.Width >= Room.RIGHT)
+			{
+				OnCollisionWithWall(); 
+			}
+			if (p.Y + p.CurrentAnimation.sourceRect.Height >= Room.BOTTOM)
+			{
+				OnCollisionWithWall(); 
+			}
 		}
 	}
 }

@@ -75,10 +75,16 @@ namespace OneRoomRPGJam.Entities
 		{
 			animationList = new List<Animation>();
 			Texture2D knight = Content.Load<Texture2D>("player/knightidle");
+			Texture2D knightwalk = Content.Load<Texture2D>("player/knightwalk");
+
 			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
 											30, 32, 6, 200f, 0, false));
 			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
 											30, 32, 6, 200f, 0, true));
+			animationList.Add(new Animation(knightwalk, new Rectangle(0, 0, 31, 32),
+											31, 32, 6, 100f, 0, false));
+			animationList.Add(new Animation(knightwalk, new Rectangle(0, 0, 31, 32),
+											31, 32, 6, 100f, 0, true));
 			currentAnimation = animationList[0]; 
 		}
 		void LoadStates()

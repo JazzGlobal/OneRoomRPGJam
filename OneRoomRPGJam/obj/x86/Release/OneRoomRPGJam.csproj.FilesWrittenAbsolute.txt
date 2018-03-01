@@ -24,3 +24,4 @@
 /home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Release/OneRoomRPGJam.exe
 /home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/obj/x86/Release/OneRoomRPGJam.exe
 /home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Release/MonoGame.Framework.dll
+/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Release/Content/player/knightwalk.xnb

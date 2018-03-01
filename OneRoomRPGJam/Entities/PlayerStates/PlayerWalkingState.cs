@@ -19,7 +19,14 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 
 		public override void OnEnter()
 		{
-			
+			if (player.FacingDirection == Player.RIGHT)
+			{
+				player.ChangeAnimation(0);
+			}
+			else if (player.FacingDirection == Player.LEFT)
+			{
+				player.ChangeAnimation(1);
+			}
 		}
 
 		public override void OnExit()
@@ -46,20 +53,26 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 			{
 				//player.Move(Player.Directions.LEFT);
 				player.X -= player.Speed;
+				player.FacingDirection = Player.LEFT;
+				player.ChangeAnimation(1);
+
 			}
 			if (player.keyboard.IsKeyDown(Keys.S))
 			{
 				//player.Move(Player.Directions.DOWN);
-				player.Y += player.Speed; 
+				player.Y += player.Speed;
 			}
 			if (player.keyboard.IsKeyDown(Keys.D))
 			{
 				//player.Move(Player.Directions.RIGHT);
-				player.X += player.Speed; 
+				player.X += player.Speed;
+				player.FacingDirection = Player.RIGHT;
+				player.ChangeAnimation(0);
+
 			}
 			else
 			{
-				//player.ChangeState(Player.States.IDLE);
+				player.ChangeState(Player.States.IDLE);
 			}
 		}
 

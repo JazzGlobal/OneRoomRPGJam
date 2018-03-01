@@ -30,7 +30,7 @@ namespace OneRoomRPGJam
 		{
 			//Only 1 player should exist. 
 			player = new Player();
-
+			player.Init(); 
 			/**How do you make sure that all spawned entities subscribe to the correct events? 
 			 *You could make a new event that invokes when an entity is spawned, and then subscribing the entity to the 
 			 *correct event.
@@ -57,10 +57,13 @@ namespace OneRoomRPGJam
 
 
 			//TODO Update all entities
+			player.Update(gameTime); 
+			CollisionHandler.Update(gameTime, player, entityList); 
 		}
 		public void Render(SpriteBatch spriteBatch)
 		{
 			//TODO Render all entities
+			player.Render(spriteBatch); 
 		}
 
 	}

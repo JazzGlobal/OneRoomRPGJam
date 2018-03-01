@@ -69,3 +69,6 @@
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/pickups/coppercoin.xnb
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/pickups/goldcoin.xnb
 /home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/pickups/silvercoin.xnb
+/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/pickups/coppercoin.xnb
+/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/pickups/goldcoin.xnb
+/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/bin/Debug/Content/pickups/silvercoin.xnb

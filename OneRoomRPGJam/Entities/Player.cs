@@ -15,6 +15,7 @@ namespace OneRoomRPGJam.Entities
 		//TODO Fix bug where hitbox doesnt flip to match sprite
 		//Create body box 
 		//These boxes should not be the entire rectangle of the current sprite. 
+
 		List<PickUp> inventory; 
 		public KeyboardState keyboard;
 		Random random = new Random();
@@ -108,8 +109,6 @@ namespace OneRoomRPGJam.Entities
 					currentAnimation.X = (int)Position.X;
 					currentAnimation.Y = (int)Position.Y;
 				}
-
-
 			currentAnimation.Update(gameTime); 
 		}
 		void UpdateDimmensions()
@@ -173,6 +172,22 @@ namespace OneRoomRPGJam.Entities
 		public override void OnCollisionWithWall()
 		{
 			//Dont let player move through wall. 
+			if (x <= Room.LEFT)
+			{
+				x = Room.LEFT + 2;
+			}
+			if (x + width >= Room.RIGHT)
+			{
+				x = (Room.RIGHT - width) - 1;
+			}
+			if (y <= Room.TOP)
+			{
+				y = Room.TOP + 2; 
+			}
+			if (y + height >= Room.BOTTOM)
+			{
+				y = (Room.BOTTOM - height) - 1; 
+			}
 		}
 		public void OnCollisionWithEnemy()
 		{

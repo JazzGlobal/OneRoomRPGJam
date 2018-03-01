@@ -6,6 +6,7 @@ namespace OneRoomRPGJam.Entities
 {
 	public class CollisionEntity : Entity
 	{
+
 		protected Rectangle hitbox;
 		public Rectangle HitBox
 		{
@@ -16,7 +17,7 @@ namespace OneRoomRPGJam.Entities
 
 		public CollisionEntity()
 		{
-			CollisionHandler.OnCollisionWithWall += OnCollisionWithWall; 
+			CollisionHandler.OnCollisionWithWall += this.OnCollisionWithWall; 
 		}
 
 		public virtual void OnCollisionWithWall()

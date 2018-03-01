@@ -49,7 +49,7 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 				//player.Move(Player.Directions.UP);
 				player.Y -= player.Speed;
 			}
-			if (player.keyboard.IsKeyDown(Keys.A))
+			else if (player.keyboard.IsKeyDown(Keys.A))
 			{
 				//player.Move(Player.Directions.LEFT);
 				player.X -= player.Speed;
@@ -57,12 +57,12 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 				player.ChangeAnimation(1);
 
 			}
-			if (player.keyboard.IsKeyDown(Keys.S))
+			else if (player.keyboard.IsKeyDown(Keys.S))
 			{
 				//player.Move(Player.Directions.DOWN);
 				player.Y += player.Speed;
 			}
-			if (player.keyboard.IsKeyDown(Keys.D))
+			else if (player.keyboard.IsKeyDown(Keys.D))
 			{
 				//player.Move(Player.Directions.RIGHT);
 				player.X += player.Speed;

@@ -53,17 +53,20 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 		private void CheckInput()
 		{
 			//Movement
-			if (player.keyboard.IsKeyDown(Keys.W) 
-			    || player.keyboard.IsKeyDown(Keys.A) 
-			    || player.keyboard.IsKeyDown(Keys.S)
-			    || player.keyboard.IsKeyDown(Keys.D))
+			if (player.keyboard.IsKeyDown(Keys.W)
+				|| player.keyboard.IsKeyDown(Keys.A)
+				|| player.keyboard.IsKeyDown(Keys.S)
+				|| player.keyboard.IsKeyDown(Keys.D))
 			{
-				player.ChangeState(Player.States.WALKING); 
+				player.ChangeState(Player.States.WALKING);
 			}
 			//End of Movement
 
 			//Attack
-
+			else if (player.keyboard.IsKeyDown(Keys.Space))
+			{
+				player.ChangeState(Player.States.ATTACKING);
+			}
 			//End of Attack
 
 			//Menu

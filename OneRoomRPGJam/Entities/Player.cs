@@ -76,15 +76,31 @@ namespace OneRoomRPGJam.Entities
 			animationList = new List<Animation>();
 			Texture2D knight = Content.Load<Texture2D>("player/knightidle");
 			Texture2D knightwalk = Content.Load<Texture2D>("player/knightwalk");
+			Texture2D knightattack = Content.Load<Texture2D>("player/knightattack");
+
+			//Idle Right
 
 			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
 											30, 32, 6, 200f, 0, false));
+			//Idle Left
 			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
 											30, 32, 6, 200f, 0, true));
+
+			//Walk Right
 			animationList.Add(new Animation(knightwalk, new Rectangle(0, 0, 31, 32),
 											31, 32, 6, 100f, 0, false));
+
+			//Walk Left
 			animationList.Add(new Animation(knightwalk, new Rectangle(0, 0, 31, 32),
 											31, 32, 6, 100f, 0, true));
+
+			//Attack Right
+			animationList.Add(new Animation(knightattack, new Rectangle(0, 0, 38, 32),
+										38, 32, 6, 100f, 0, false));
+
+			//Attack Left
+			animationList.Add(new Animation(knightattack, new Rectangle(0, 0, 38, 32),
+										38, 32, 6, 100f, 0, true));
 			currentAnimation = animationList[0]; 
 		}
 		void LoadStates()
@@ -92,7 +108,8 @@ namespace OneRoomRPGJam.Entities
 			stateMachine = new StateMachine();
 
 			stateMachine.AddState(new PlayerIdleState(this));
-			stateMachine.AddState(new PlayerWalkingState(this)); 
+			stateMachine.AddState(new PlayerWalkingState(this));
+			stateMachine.AddState(new PlayerAttackingState(this));
 			stateMachine.Init(); 
 		}
 
@@ -171,6 +188,10 @@ namespace OneRoomRPGJam.Entities
 			else if (state == Player.States.WALKING)
 			{
 				stateMachine.ChangeState(1);
+			}
+			else if (state == States.ATTACKING)
+			{
+				stateMachine.ChangeState(2);
 			}
 		}
 

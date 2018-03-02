@@ -7,7 +7,7 @@ using OneRoomRPGJam.Entities.EntityStates;
 using OneRoomRPGJam.Graphics;
 using OneRoomRPGJam.System;
 
-namespace OneRoomRPGJam.Entities
+namespace OneRoomRPGJam.Entities.Enemies
 {
 	public class Enemy : CollisionEntity
 	{

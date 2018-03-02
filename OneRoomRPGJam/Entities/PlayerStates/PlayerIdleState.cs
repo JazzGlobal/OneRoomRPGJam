@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using OneRoomRPGJam.Entities;
 
 namespace OneRoomRPGJam.Entities.PlayerStates
 {
@@ -20,7 +19,15 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 
 		public override void OnEnter()
 		{
-			//Reset needed variables. 
+			//Reset needed variables.
+			if (player.FacingDirection == Player.RIGHT)
+			{
+				player.ChangeAnimation(0);
+			}
+			else if (player.FacingDirection == Player.LEFT)
+			{
+				player.ChangeAnimation(1);
+			}
 		}
 
 		public override void OnExit()
@@ -46,7 +53,9 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 		private void CheckInput()
 		{
 			//Movement
-			if (player.keyboard.IsKeyDown(Keys.W) || player.keyboard.IsKeyDown(Keys.A) || player.keyboard.IsKeyDown(Keys.S)
+			if (player.keyboard.IsKeyDown(Keys.W) 
+			    || player.keyboard.IsKeyDown(Keys.A) 
+			    || player.keyboard.IsKeyDown(Keys.S)
 			    || player.keyboard.IsKeyDown(Keys.D))
 			{
 				player.ChangeState(Player.States.WALKING); 

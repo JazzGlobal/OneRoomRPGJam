@@ -24,8 +24,11 @@ namespace OneRoomRPGJam.Entities
 		//int maxHealth; 
 		Vector2 Position;
 		float angle;
-		private const string LEFT = "LEFT";
-		private const string RIGHT = "RIGHT";
+		public static string LEFT = "LEFT";
+		public static string RIGHT = "RIGHT";
+
+		public string FacingDirection = RIGHT; 
+
 		private StateMachine stateMachine;
 		List<Animation> animationList;
 		Animation currentAnimation;
@@ -72,9 +75,16 @@ namespace OneRoomRPGJam.Entities
 		{
 			animationList = new List<Animation>();
 			Texture2D knight = Content.Load<Texture2D>("player/knightidle");
+			Texture2D knightwalk = Content.Load<Texture2D>("player/knightwalk");
+
 			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
 											30, 32, 6, 200f, 0, false));
-			
+			animationList.Add(new Animation(knight, new Rectangle(0, 0, 30, 32),
+											30, 32, 6, 200f, 0, true));
+			animationList.Add(new Animation(knightwalk, new Rectangle(0, 0, 31, 32),
+											31, 32, 6, 100f, 0, false));
+			animationList.Add(new Animation(knightwalk, new Rectangle(0, 0, 31, 32),
+											31, 32, 6, 100f, 0, true));
 			currentAnimation = animationList[0]; 
 		}
 		void LoadStates()
@@ -162,6 +172,11 @@ namespace OneRoomRPGJam.Entities
 			{
 				stateMachine.ChangeState(1);
 			}
+		}
+
+		public void ChangeAnimation(int index)
+		{
+			currentAnimation = animationList[index];
 		}
 
 		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)

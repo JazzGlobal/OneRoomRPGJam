@@ -1,5 +1,11 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entities/Enemies/Bat.cs">
+    <Files>
+      <File FileName="OneRoomRPGJam/Entities/Enemies/Bat.cs" Line="2" Column="1" />
+      <File FileName="OneRoomRPGJam/Entities/Enemies/SkeletonMan.cs" Line="5" Column="2" />
+      <File FileName="OneRoomRPGJam/Entities/Enemies/Slime.cs" Line="5" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.ItemProperties.OneRoomRPGJam PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

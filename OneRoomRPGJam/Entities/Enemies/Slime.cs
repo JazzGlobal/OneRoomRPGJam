@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using OneRoomRPGJam.Entities.Enemies;
 using OneRoomRPGJam.Entities.EntityStates;
 using OneRoomRPGJam.Graphics;
 
-namespace OneRoomRPGJam
+namespace OneRoomRPGJam.Entities.Enemies
 {
 	public abstract class SlimeState : State
 	{

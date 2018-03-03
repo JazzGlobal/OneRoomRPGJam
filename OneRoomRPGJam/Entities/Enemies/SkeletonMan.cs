@@ -1,9 +1,9 @@
 ﻿using System;
 using OneRoomRPGJam.Entities;
 
-namespace OneRoomRPGJam
+namespace OneRoomRPGJam.Entities.Enemies
 {
-	public class SkeletonMan : CollisionEntity
+	public class SkeletonMan : Enemy
 	{
 		//Behavior: Seek -> Throw Bone 
 	}

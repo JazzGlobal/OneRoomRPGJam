@@ -5,21 +5,13 @@ using OneRoomRPGJam.Entities;
 
 namespace OneRoomRPGJam.System
 {
-	//TODO Partition the space in the game room into 4 sections. 
-	//Only check for PlayerAttackState to Enemy Collisions for the section the player is in. 
-
-	//TODO Create method that draws rectangles around entities. This is useful for debugging. 
-
 	public class CollisionHandler
 	{
 		//Partitions
-		//TODO Define partitions equally. 
 		public static Rectangle quad1, quad2, quad3, quad4; 
 		public delegate void OnCollisionEventHandler();
 		public static event OnCollisionEventHandler OnCollisionWithWall;
 		public static event OnCollisionEventHandler OnPlayerCollisionWithEnemy;
-
-
 
 		public delegate void OnPlayerCollisionEventHandler(CollisionEntity collisionEntity); 
 		public static event OnPlayerCollisionEventHandler OnPlayerCollisionWithPickUp;

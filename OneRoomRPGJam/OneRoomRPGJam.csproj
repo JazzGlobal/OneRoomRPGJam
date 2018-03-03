@@ -65,6 +65,9 @@
     <Compile Include="Graphics\Outline.cs" />
     <Compile Include="Entities\Enemies\Enemy.cs" />
     <Compile Include="Entities\PlayerStates\PlayerHurtState.cs" />
+    <Compile Include="Entities\Enemies\Slime.cs" />
+    <Compile Include="Entities\Enemies\Bat.cs" />
+    <Compile Include="Entities\Enemies\SkeletonMan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

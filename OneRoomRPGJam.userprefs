@@ -1,7 +1,12 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Game1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/System/CollisionHandler.cs">
     <Files>
-      <File FileName="OneRoomRPGJam/Game1.cs" Line="21" Column="5" />
+      <File FileName="OneRoomRPGJam/Entities/Room.cs" Line="1" Column="1" />
+      <File FileName="OneRoomRPGJam/Entities/PlayerStates/PlayerHurtState.cs" Line="9" Column="44" />
+      <File FileName="OneRoomRPGJam/System/CollisionHandler.cs" Line="68" Column="95" />
+      <File FileName="OneRoomRPGJam/Graphics/Outline.cs" Line="13" Column="29" />
+      <File FileName="OneRoomRPGJam/Entities/Controller.cs" Line="83" Column="34" />
+      <File FileName="OneRoomRPGJam/Game1.cs" Line="22" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

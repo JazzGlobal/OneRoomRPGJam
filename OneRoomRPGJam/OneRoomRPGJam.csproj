@@ -64,6 +64,7 @@
     <Compile Include="System\EntityEvents.cs" />
     <Compile Include="Graphics\Outline.cs" />
     <Compile Include="Entities\Enemies\Enemy.cs" />
+    <Compile Include="Entities\PlayerStates\PlayerHurtState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

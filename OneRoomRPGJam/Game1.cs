@@ -21,13 +21,15 @@ namespace OneRoomRPGJam
 		Player p;
 		Slime s;
 		Room r;
-		Outline test;
-		Controller c; 
+		Controller c;
+		public static int WIDTH = 640;
+		public static int HEIGHT = 480; 
+
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
-			graphics.PreferredBackBufferWidth = 640;
-			graphics.PreferredBackBufferHeight = 480;
+			graphics.PreferredBackBufferWidth = WIDTH;
+			graphics.PreferredBackBufferHeight = HEIGHT;
 			Content.RootDirectory = "Content";
 			GSM = new GameStateManager(Content);
 			IsMouseVisible = true;
@@ -54,8 +56,6 @@ namespace OneRoomRPGJam
 			r.Init();
 			c.Init(); 
 			base.Initialize();
-			test = new Outline(Color.Green, p.getBounds());
-
 		}
 
 		/// <summary>
@@ -87,7 +87,6 @@ namespace OneRoomRPGJam
 			GSM.Update(gameTime);
 			s.Update(gameTime);
 			c.Update(gameTime); 
-			test.Update(gameTime, p.HitBox);
 			if (exit)
 			{
 				Exit(); 
@@ -108,7 +107,6 @@ namespace OneRoomRPGJam
 			//p.Render(spriteBatch);
 			s.Render(spriteBatch);
 			c.Render(spriteBatch); 
-			test.Render(spriteBatch);
 			//GSM.Render(spriteBatch);
 			spriteBatch.End(); 
 			base.Draw(gameTime);

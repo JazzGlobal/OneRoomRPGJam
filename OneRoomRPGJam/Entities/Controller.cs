@@ -12,7 +12,8 @@ namespace OneRoomRPGJam
 		CollisionEntity e;
 		Player player; 
 		List<CollisionEntity> entityList;
-		int maxNumberOfEnemies; 
+		int maxNumberOfEnemies;
+		Outline outline, outline2, outline3, outline4; 
 
 		//TODO Finish Enemy Spawner
 		//Create random enemies based on a spawn interval. 
@@ -28,9 +29,19 @@ namespace OneRoomRPGJam
 		}
 		public void Init()
 		{
-			//Only 1 player should exist. 
+			
 			player = new Player();
-			player.Init(); 
+			player.Init();
+			CollisionHandler.Init();
+			outline = new Outline(Color.Red);
+			outline.Init();
+			outline2 = new Outline(Color.Green);
+			outline2.Init();
+			outline3 = new Outline(Color.Yellow);
+			outline3.Init();
+			outline4 = new Outline(Color.Blue);
+			outline4.Init(); 
+
 			/**How do you make sure that all spawned entities subscribe to the correct events? 
 			 *You could make a new event that invokes when an entity is spawned, and then subscribing the entity to the 
 			 *correct event.
@@ -55,7 +66,10 @@ namespace OneRoomRPGJam
 			//Projectile collisions should only be checked in the section of the projectiles current location (this data will be updated per loop)
 			//foreach projectile 
 
-
+			outline.Update(gameTime,CollisionHandler.quad1); 
+			outline2.Update(gameTime, CollisionHandler.quad2);
+			outline3.Update(gameTime, CollisionHandler.quad3);
+			outline4.Update(gameTime, CollisionHandler.quad4);
 			//TODO Update all entities
 			player.Update(gameTime); 
 			CollisionHandler.Update(gameTime, player, entityList); 
@@ -63,7 +77,11 @@ namespace OneRoomRPGJam
 		public void Render(SpriteBatch spriteBatch)
 		{
 			//TODO Render all entities
-			player.Render(spriteBatch); 
+			outline.Render(spriteBatch);
+			outline2.Render(spriteBatch);
+			outline3.Render(spriteBatch);
+			outline4.Render(spriteBatch); 
+			player.Render(spriteBatch);
 		}
 
 	}

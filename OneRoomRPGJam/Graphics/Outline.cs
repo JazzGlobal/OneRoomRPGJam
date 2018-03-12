@@ -10,9 +10,12 @@ namespace OneRoomRPGJam
 		Color color;
 		Rectangle rect; 
 
-		public Outline(Color color, Rectangle rect)
+		public Outline(Color color)
 		{
 			this.color = color;
+		}
+		public void Init()
+		{
 			texture = new Texture2D(Game1.GetGraphicsDevice(), 1, 1);
 			texture.SetData(new Color[] { color });
 		}

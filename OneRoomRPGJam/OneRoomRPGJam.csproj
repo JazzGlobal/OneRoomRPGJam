@@ -50,7 +50,6 @@
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Menu\GameState\PauseState.cs" />
     <Compile Include="Menu\GameState\PlayState.cs" />
-    <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Graphics\Animation.cs" />
     <Compile Include="Entities\PlayerStates\PlayerIdleState.cs" />
     <Compile Include="Entities\PlayerStates\PlayerWalkingState.cs" />
@@ -64,6 +63,11 @@
     <Compile Include="Entities\Controller.cs" />
     <Compile Include="System\EntityEvents.cs" />
     <Compile Include="Graphics\Outline.cs" />
+    <Compile Include="Entities\Enemies\Enemy.cs" />
+    <Compile Include="Entities\PlayerStates\PlayerHurtState.cs" />
+    <Compile Include="Entities\Enemies\Slime.cs" />
+    <Compile Include="Entities\Enemies\Bat.cs" />
+    <Compile Include="Entities\Enemies\SkeletonMan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

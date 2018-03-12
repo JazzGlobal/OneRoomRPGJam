@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightwalk.png</SourceFile>
-  <SourceTime>2018-03-01T05:31:26-05:00</SourceTime>
+  <SourceTime>2018-03-01T23:24:18-05:00</SourceTime>
   <DestFile>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/bin/DesktopGL/player/knightwalk.xnb</DestFile>
-  <DestTime>2018-03-01T05:40:26-05:00</DestTime>
+  <DestTime>2018-03-01T23:24:49-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-02-12T00:06:27-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

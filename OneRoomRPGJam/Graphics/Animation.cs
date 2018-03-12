@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace OneRoomRPGJam.Graphics
 {
+	//TODO Modify to give access to whether or not an animation has finished playing. 
 	public class Animation
 	{
 		bool flip;

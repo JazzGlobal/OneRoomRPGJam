@@ -2,57 +2,30 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using OneRoomRPGJam.Entities;
 using OneRoomRPGJam.Entities.EntityStates;
 using OneRoomRPGJam.Graphics;
-using OneRoomRPGJam.System;
 
-namespace OneRoomRPGJam.Entities
+namespace OneRoomRPGJam.Entities.Enemies
 {
-	public class Enemy : CollisionEntity
-	{
-		public Enemy() : base()
-		{
-			CollisionHandler.OnEnemyCollisionWithPlayerSword += Hurt; 
-		}
-		public override void Init()
-		{
-		}
-		public override void Update(GameTime gameTime)
-		{
-		}
-		public override void Render(SpriteBatch spriteBatch)
-		{
-		}
-		public virtual void Move()
-		{
-				
-		}
-		public void Hurt(CollisionEntity player)
-		{
-			Player p = (Player)player; 
-			//Take damage based on the player's current attack power. 
-		}
-	}
 	public abstract class SlimeState : State
 	{
 		protected Slime slime;
 
 		public SlimeState(Slime slime)
 		{
-			this.slime = slime; 
+			this.slime = slime;
 		}
 	}
 	public class Slime : Enemy
 	{
 		//Make Slime act on a timer. 
 		//TODO Slime should jump every so often to move closer to the player. 
-		Color color; 
-		Vector2 Position; 
+		Color color;
+		Vector2 Position;
 		const float delay = 4;
 		float remaining_delay = delay;
 		float positionX, velocityX;
-		float positionY, velocityY; 
+		float positionY, velocityY;
 		float gravity = 0.5f;
 		StateMachine stateMachine;
 		List<Animation> animationList;
@@ -60,19 +33,19 @@ namespace OneRoomRPGJam.Entities
 
 		public Slime()
 		{
-			
+
 		}
 		public Slime(Color color)
 		{
-			this.color = color; 
+			this.color = color;
 		}
 		public override void Init()
 		{
 			x = 50;
 			y = 50;
-			Position = new Vector2(x, y); 
-			LoadAnimations(); 
-			LoadStates(); 
+			Position = new Vector2(x, y);
+			LoadAnimations();
+			LoadStates();
 		}
 		void LoadAnimations()
 		{
@@ -80,11 +53,11 @@ namespace OneRoomRPGJam.Entities
 			Texture2D slimeidle = Content.Load<Texture2D>("enemies/slime/slimestill");
 			Texture2D slimewalk = Content.Load<Texture2D>("enemies/slime/slimewalk");
 
-			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 21, 0, 200f, 0, false,color)); //Right idle
-			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 21, 0, 200f, 0, true,color)); //Left idle
+			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 21, 0, 200f, 0, false, color)); //Right idle
+			animationList.Add(new Animation(slimeidle, new Rectangle(0, 0, 26, 21), 26, 21, 0, 200f, 0, true, color)); //Left idle
 
-			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 29, 15), 29, 15, 1, 200f, 0, false,color)); //Right walk
-			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 29, 15), 29, 15, 1, 200f, 0, true,color)); //Left walk
+			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 29, 15), 29, 15, 1, 200f, 0, false, color)); //Right walk
+			animationList.Add(new Animation(slimewalk, new Rectangle(0, 0, 29, 15), 29, 15, 1, 200f, 0, true, color)); //Left walk
 
 			currentAnimation = animationList[2];
 		}
@@ -106,7 +79,7 @@ namespace OneRoomRPGJam.Entities
 				}
 			}
 			UpdatePosition();
-			currentAnimation.Update(gameTime); 
+			currentAnimation.Update(gameTime);
 		}
 		void UpdatePosition()
 		{
@@ -115,17 +88,17 @@ namespace OneRoomRPGJam.Entities
 		}
 		public override void Render(SpriteBatch spriteBatch)
 		{
-			currentAnimation.Render(spriteBatch); 
+			currentAnimation.Render(spriteBatch);
 		}
 		public override void Move()
 		{
-			
-			Console.WriteLine("Slime moved"); 
+
+			Console.WriteLine("Slime moved");
 		}
 
 		class IdleState : SlimeState
 		{
-			
+
 			public IdleState(Slime slime) : base(slime)
 			{
 			}
@@ -220,13 +193,5 @@ namespace OneRoomRPGJam.Entities
 			{
 			}
 		}
-	}
-	public class Bat : CollisionEntity 
-	{
-		//Only one behavior: Fly randomly without seeking the player. Will use a wander design. 
-	}
-	public class SkeletonMan : CollisionEntity
-	{
-		//Behavior: Seek -> Throw Bone 
 	}
 }

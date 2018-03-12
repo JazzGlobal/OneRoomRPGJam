@@ -6,28 +6,36 @@ namespace OneRoomRPGJam.Graphics
 	//TODO Modify to give access to whether or not an animation has finished playing. 
 	public class Animation
 	{
-		bool flip;
+		protected bool flip;
 		public int X;
 		public int Y;
-		Texture2D spriteSheet;
-		Rectangle destRect;
+		protected Texture2D spriteSheet;
+		protected Rectangle destRect;
 		public Rectangle sourceRect;
-		float elapsed;
-		float delay;
-		int frameWidth;
-		int frameHeight;
-		int frames;
-		int currentFrame = 0;
-		int row;
-		Color color = Color.White;
+		protected float elapsed;
+		protected float delay;
+		protected int frameWidth;
+		protected int frameHeight;
+		protected int totalFrames;
+		protected int currentFrame = 0;
+		protected int row;
+		protected Color color = Color.White;
 
-		public Animation(Texture2D pSpriteSheet, Rectangle pDestRectangle, int pFrameWidth, int pFrameHeight, int pFrames, float pDelay, int row, bool flip)
+		public bool finishedPlaying()
+		{
+			return currentFrame >= totalFrames;
+		}
+		public void ResetAnimation()
+		{
+			currentFrame = 0; 
+		}
+		public Animation(Texture2D pSpriteSheet, Rectangle pDestRectangle, int pFrameWidth, int pFrameHeight, int pTotalFrames, float pDelay, int row, bool flip)
 		{
 			spriteSheet = pSpriteSheet;
 			destRect = pDestRectangle;
 			frameHeight = pFrameHeight;
 			frameWidth = pFrameWidth;
-			frames = pFrames;
+			totalFrames = pTotalFrames;
 			delay = pDelay;
 			this.row = row;
 			this.flip = flip;
@@ -38,7 +46,7 @@ namespace OneRoomRPGJam.Graphics
 			destRect = pDestRectangle;
 			frameHeight = pFrameHeight;
 			frameWidth = pFrameWidth;
-			frames = pFrames;
+			totalFrames = pFrames;
 			delay = pDelay;
 			this.row = row;
 			this.flip = flip;
@@ -49,7 +57,7 @@ namespace OneRoomRPGJam.Graphics
 			elapsed += (float)gameTime.ElapsedGameTime.Milliseconds;
 			if (elapsed >= delay)
 			{
-				if (currentFrame >= frames)
+				if (currentFrame >= totalFrames)
 				{
 					currentFrame = 0;
 				}
@@ -61,7 +69,7 @@ namespace OneRoomRPGJam.Graphics
 			}
 			sourceRect = new Rectangle(currentFrame * frameWidth, row * frameHeight, frameWidth, frameHeight);
 		}
-		public void Render(SpriteBatch sb)
+		public virtual void Render(SpriteBatch sb)
 		{
 			if (!flip)
 			{

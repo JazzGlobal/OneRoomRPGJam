@@ -16,6 +16,7 @@ namespace OneRoomRPGJam.Entities.Enemies
 			this.slime = slime;
 		}
 	}
+
 	public class Slime : Enemy
 	{
 		//Make Slime act on a timer. 

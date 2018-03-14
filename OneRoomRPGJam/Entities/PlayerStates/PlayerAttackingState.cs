@@ -51,6 +51,11 @@ namespace OneRoomRPGJam.Entities.PlayerStates
 
 		public override void Update(GameTime gameTime)
 		{
+			if (player.CurrentAnimation.finishedPlaying())
+			{
+				player.CurrentAnimation.ResetAnimation();
+				player.ChangeState(Player.States.IDLE); 
+			}
 		}
 	}
 }

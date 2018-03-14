@@ -4,17 +4,17 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/startbutton.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player_placeholder.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/knightsprite.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightidle.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/enemies/slime/slimewalk.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/enemies/slime/slimestill.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/map/placeholdermap.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/pickups/goldcoin.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/pickups/silvercoin.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/pickups/coppercoin.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightwalk.png</File>
-    <File>/home/christopher/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightattack.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/startbutton.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player_placeholder.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/knightsprite.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightidle.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/enemies/slime/slimewalk.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/enemies/slime/slimestill.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/map/placeholdermap.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/pickups/goldcoin.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/pickups/silvercoin.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/pickups/coppercoin.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightwalk.png</File>
+    <File>/home/chris/Gits/OneRoomRPGJam/OneRoomRPGJam/Content/player/knightattack.png</File>
   </SourceFiles>
 </SourceFileCollection>

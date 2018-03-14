@@ -96,13 +96,14 @@ namespace OneRoomRPGJam.Entities
 
 			//Attack Right
 			animationList.Add(new Animation(knightattack, new Rectangle(0, 0, 38, 32),
-										38, 32, 6, 100f, 0, false));
+										38, 32, 6, 50f, 0, false));
 
 			//Attack Left
-			animationList.Add(new Animation(knightattack, new Rectangle(0, 0, 38, 32),
-										38, 32, 6, 100f, 0, true));
+			animationList.Add(new PlayerAnimation(knightattack, new Rectangle(0, 0, 38, 32),
+										38, 32, 6, 50f, 0, true,8));
 			currentAnimation = animationList[0]; 
 		}
+
 		void LoadStates()
 		{
 			stateMachine = new StateMachine();
@@ -138,11 +139,13 @@ namespace OneRoomRPGJam.Entities
 				}
 			currentAnimation.Update(gameTime); 
 		}
+
 		void UpdateDimmensions()
 		{
 			width = currentAnimation.sourceRect.Width;
 			height = currentAnimation.sourceRect.Height; 
 		}
+
 		void UpdatePosition()
 		{
 			Position.X = x;
@@ -225,10 +228,12 @@ namespace OneRoomRPGJam.Entities
 				y = (Room.BOTTOM - height) - 1; 
 			}
 		}
+
 		public void OnCollisionWithEnemy()
 		{
 			//Knock player back
 		}
+
 		public void OnCollisionWithPickUp(CollisionEntity item)
 		{
 			if (inventory.Count < 4)
@@ -260,12 +265,31 @@ namespace OneRoomRPGJam.Entities
 				//then health++ 
 			}
 		}
+
 		void PrintInformation()
 		{
 			Console.Write("X: " + x + "\n" + 
 			              "Y: " + y + "\n" + 
 			             "Width: " + width + "\n" + 
 			             "Height: " + height + "\n");
+		}
+
+		class PlayerAnimation : Animation 
+		{
+			int adjust; 
+			public PlayerAnimation(Texture2D pSpriteSheet, Rectangle pDestRectangle,
+								   int pFrameWidth, int pFrameHeight,
+			                       int pTotalFrames, float pDelay, int row, bool flip,int adjust) : base(pSpriteSheet, pDestRectangle, 
+			                                                                                  pFrameWidth, pFrameHeight,  pTotalFrames, 
+			                                                                                  pDelay, row, flip)
+			{
+				this.adjust = adjust;
+			}
+			public override void Render(SpriteBatch sb)
+			{
+				sb.Draw(spriteSheet, new Rectangle(X - adjust, Y, destRect.Width, destRect.Height), 
+				        sourceRect, color, 0, new Vector2(0, 0), SpriteEffects.FlipHorizontally, 0);
+			}
 		}
 	}
 }

@@ -8,8 +8,6 @@ using OneRoomRPGJam.System;
 
 namespace OneRoomRPGJam.Entities.Enemies
 {
-	//TODO Seperate enemies into their own files. 
-
 	public class Enemy : CollisionEntity
 	{
 		public Enemy() : base()

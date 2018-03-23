@@ -68,6 +68,7 @@
     <Compile Include="Entities\Enemies\Slime.cs" />
     <Compile Include="Entities\Enemies\Bat.cs" />
     <Compile Include="Entities\Enemies\SkeletonMan.cs" />
+    <Compile Include="Entities\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

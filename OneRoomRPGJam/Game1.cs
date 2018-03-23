@@ -23,7 +23,7 @@ namespace OneRoomRPGJam
 		Room r;
 		Controller c;
 		public static int WIDTH = 640;
-		public static int HEIGHT = 480; 
+		public static int HEIGHT = 480;
 
 		public Game1()
 		{
@@ -36,7 +36,7 @@ namespace OneRoomRPGJam
 			p = new Player();
 			s = new Slime(new Color(200, 50, 200));
 			r = new Room();
-			c = new Controller(); 
+			c = new Controller();
 		}
 
 		/// <summary>
@@ -51,10 +51,9 @@ namespace OneRoomRPGJam
 			Entity.SetContentManager(Content);
 			GSM.AddGameState(new MainMenu());
 			GSM.Init();
-			//p.Init();
 			s.Init();
 			r.Init();
-			c.Init(); 
+			c.Init();
 			base.Initialize();
 		}
 

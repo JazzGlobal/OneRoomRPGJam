@@ -1,8 +1,12 @@
 ﻿<Properties StartupConfiguration="{0B9CBA8D-19B0-45D4-997E-F5F3F31977E2}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entities/Enemies/Slime.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OneRoomRPGJam/Entities/Entity.cs">
     <Files>
-      <File FileName="OneRoomRPGJam/Entities/Enemies/Slime.cs" Line="153" Column="94" />
-      <File FileName="OneRoomRPGJam/Entities/Player.cs" Line="35" Column="3" />
+      <File FileName="OneRoomRPGJam/Entities/Player.cs" Line="146" Column="49" />
+      <File FileName="OneRoomRPGJam/Graphics/Outline.cs" Line="12" Column="3" />
+      <File FileName="OneRoomRPGJam/Game1.cs" Line="27" Column="1" />
+      <File FileName="OneRoomRPGJam/Entities/Controller.cs" Line="73" Column="48" />
+      <File FileName="OneRoomRPGJam/Entities/CollisionEntity.cs" Line="1" Column="1" />
+      <File FileName="OneRoomRPGJam/Entities/Entity.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

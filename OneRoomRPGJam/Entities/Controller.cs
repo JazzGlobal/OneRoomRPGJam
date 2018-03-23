@@ -13,15 +13,11 @@ namespace OneRoomRPGJam
 		Player player; 
 		List<CollisionEntity> entityList;
 		int maxNumberOfEnemies;
-		Outline outline, outline2, outline3, outline4; 
+		Outline outline, outline2, outline3, outline4, playerOutline; 
 
 		//TODO Finish Enemy Spawner
 		//Create random enemies based on a spawn interval. 
 		//Ramp up spawn speed and amount of enemies allowed based on time played. 
-
-		//TODO Create Projectile Class
-		//This will be the base for all projectile type attacks (Bone throw, fireball, etc). 
-
 
 		public Controller()
 		{
@@ -40,7 +36,9 @@ namespace OneRoomRPGJam
 			outline3 = new Outline(Color.Yellow);
 			outline3.Init();
 			outline4 = new Outline(Color.Blue);
-			outline4.Init(); 
+			outline4.Init();
+			playerOutline = new Outline(Color.Red);
+			playerOutline.Init(); 
 
 			/**How do you make sure that all spawned entities subscribe to the correct events? 
 			 *You could make a new event that invokes when an entity is spawned, and then subscribing the entity to the 
@@ -71,7 +69,8 @@ namespace OneRoomRPGJam
 			outline3.Update(gameTime, CollisionHandler.quad3);
 			outline4.Update(gameTime, CollisionHandler.quad4);
 			//TODO Update all entities
-			player.Update(gameTime); 
+			player.Update(gameTime);
+			playerOutline.Update(gameTime, player.HitBox); 
 			CollisionHandler.Update(gameTime, player, entityList); 
 		}
 		public void Render(SpriteBatch spriteBatch)
@@ -82,6 +81,7 @@ namespace OneRoomRPGJam
 			outline3.Render(spriteBatch);
 			outline4.Render(spriteBatch); 
 			player.Render(spriteBatch);
+			playerOutline.Render(spriteBatch);
 		}
 
 	}

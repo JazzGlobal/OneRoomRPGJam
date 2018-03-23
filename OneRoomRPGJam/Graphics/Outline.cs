@@ -33,7 +33,6 @@ namespace OneRoomRPGJam
 			spriteBatch.Draw(texture, new Rectangle(rect.X, rect.Y, 1, rect.Height), Color.White);
 			//Right
 			spriteBatch.Draw(texture, new Rectangle(rect.X + rect.Width, rect.Y, 1, rect.Height), Color.White);
-
 		}
 	}
 }

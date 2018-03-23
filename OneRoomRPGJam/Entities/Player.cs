@@ -129,7 +129,7 @@ namespace OneRoomRPGJam.Entities
 			keyboard = Keyboard.GetState();
 			PrintInformation();
 			stateMachine.Update(gameTime);
-			hitbox = new Rectangle(x + 2, y, width - 15, height);
+			SetHitBox();
 			UpdatePosition();
 			UpdateDimmensions();
 			if (currentAnimation.X != (int)Position.X || currentAnimation.Y != (int)Position.Y)
@@ -145,7 +145,13 @@ namespace OneRoomRPGJam.Entities
 			width = currentAnimation.sourceRect.Width;
 			height = currentAnimation.sourceRect.Height; 
 		}
-
+		void SetHitBox()
+		{
+			hitbox = new Rectangle(getBounds().X + 5,getBounds().Y,getBounds().Width,getBounds().Height);
+			if (FacingDirection == LEFT)
+			{
+			}
+		}
 		void UpdatePosition()
 		{
 			Position.X = x;
@@ -203,7 +209,7 @@ namespace OneRoomRPGJam.Entities
 			currentAnimation = animationList[index];
 		}
 
-		public override void Render(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch)
+		public override void Render(SpriteBatch spriteBatch)
 		{
 			currentAnimation.Render(spriteBatch); 
 		}

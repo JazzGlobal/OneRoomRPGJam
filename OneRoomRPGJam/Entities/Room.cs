@@ -6,11 +6,6 @@ namespace OneRoomRPGJam.Entities
 {
 	public class Room : Entity
 	{
-		//TODO Create Controller.cs class.This will handle entity spawns. 
-		//TODO Create fields for room boundaries. This will be used in wall collision 
-		//checks
-
-
 		public static int LEFT = 55;
 		public static int TOP = 65;
 		public static int BOTTOM = 420;

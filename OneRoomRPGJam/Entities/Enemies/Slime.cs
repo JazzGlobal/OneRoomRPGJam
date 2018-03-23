@@ -48,6 +48,26 @@ namespace OneRoomRPGJam.Entities.Enemies
 			LoadAnimations();
 			LoadStates();
 		}
+		public enum States
+		{
+			IDLE, SEEK, JUMP
+		}
+
+		public void ChangeState(States state)
+		{
+			if (state == States.IDLE)
+			{
+				stateMachine.ChangeState(0); 
+			}
+			if (state == States.SEEK)
+			{
+				stateMachine.ChangeState(1); 
+			}
+			if (state == States.JUMP)
+			{
+				stateMachine.ChangeState(2); 
+			}
+		}
 		void LoadAnimations()
 		{
 			animationList = new List<Animation>();

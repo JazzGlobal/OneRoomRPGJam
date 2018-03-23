@@ -147,10 +147,7 @@ namespace OneRoomRPGJam.Entities
 		}
 		void SetHitBox()
 		{
-			hitbox = new Rectangle(getBounds().X + 5,getBounds().Y,getBounds().Width,getBounds().Height);
-			if (FacingDirection == LEFT)
-			{
-			}
+			hitbox = new Rectangle(getBounds().X,getBounds().Y,getBounds().Width,getBounds().Height);
 		}
 		void UpdatePosition()
 		{
@@ -250,7 +247,7 @@ namespace OneRoomRPGJam.Entities
 		}
 
 		/// <summary>
-		/// Increases one player state at random by 1 point. 
+		/// Increases one player stat at random by 1 point. 
 		/// </summary>
 		void LevelUp()
 		{

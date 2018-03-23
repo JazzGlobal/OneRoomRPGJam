@@ -21,6 +21,14 @@ namespace OneRoomRPGJam.Graphics
 		protected int row;
 		protected Color color = Color.White;
 
+		public int FrameWidth
+		{
+			get { return frameWidth;} 
+		}
+		public int FrameHeight
+		{
+			get { return frameHeight; }
+		}
 		public bool finishedPlaying()
 		{
 			return currentFrame >= totalFrames;
